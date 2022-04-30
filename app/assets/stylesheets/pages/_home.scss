@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.page-background {
+  height: 100vh;
+  background-image: url("background.jpg");
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+}
