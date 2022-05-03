@@ -1,2 +1,44 @@
-<h1>Pets#index</h1>
+<h1>Meet our pets!</h1>
 <p>Find me in app/views/pets/index.html.erb</p>
+
+<% @pets.each do |pet| %>
+  <div class="card-pet">
+    <div>
+      <%= pet.image %>
+    </div>
+    <div class="card-pet-info">
+      <div>
+        <%= pet.category %> | <%= pet.specie %>
+      </div>
+      <div>
+        <%= pet.name %>
+      </div>
+      <div>
+        <%= pet.description %>
+      </div>
+      <div>
+        <strong><%= pet.price %> €</strong> / day
+      </div>
+    </div>
+  </div>
+<% end %>
+
+  <div class="card-pet">
+    <div>
+      <%= image_tag "lion.jpg", width: 200%>
+    </div>
+    <div class="card-pet-info">
+      <div>
+        Wildcats | Lion
+      </div>
+      <div>
+        <h1>Simba</h1>
+      </div>
+      <div>
+        Jungle king
+      </div>
+      <div>
+        <strong>10,000 €</strong> / day
+      </div>
+    </div>
+  </div>
