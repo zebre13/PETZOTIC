@@ -4,7 +4,6 @@ class Pet < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many_attached :photos
 
-
   validates :name, presence: true, uniqueness: true
   validates :specie, presence: true, inclusion: { in: SPECIES,
                                                   message: "%{value} is not a valid specie" }
