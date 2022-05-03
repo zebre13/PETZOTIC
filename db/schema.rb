@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_182026) do
     t.string "name"
     t.text "description"
     t.string "specie"
-    t.boolean "available", default: true
+    t.boolean "available"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
