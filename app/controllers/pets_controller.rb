@@ -9,10 +9,14 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @pet.user = current_user
+    authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.user = current_user
+    authorize @pet
     if @pet.save
       redirect_to root_path
     else
@@ -23,6 +27,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(%i[category name description specie])
+    params.require(:pet).permit(:category, :name, :description, :specie, :price, photos: [])
   end
 end
