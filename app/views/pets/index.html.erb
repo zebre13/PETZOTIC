@@ -4,7 +4,7 @@
 <% @pets.each do |pet| %>
   <div class="card-pet">
     <div>
-      <%= pet.image %>
+      <%= pet.photos %>
     </div>
     <div class="card-pet-info">
       <div>
@@ -23,22 +23,31 @@
   </div>
 <% end %>
 
-  <div class="card-pet">
-    <div>
-      <%= image_tag "lion.jpg", width: 200%>
-    </div>
-    <div class="card-pet-info">
-      <div>
-        Wildcats | Lion
+<div class="content">
+  <div class="cards">
+    <div class="card-pet">
+      <div class="card-img">
+        <%= image_tag "lion.jpg" %>
       </div>
+      <div class="card-pet-info">
+        <div>
+          Wildcats | Lion
+        </div>
+        <div>
+          <h1>Simba</h1>
+        </div>
       <div>
-        <h1>Simba</h1>
-      </div>
-      <div>
-        Jungle king
-      </div>
-      <div>
-        <strong>10,000 €</strong> / day
+          <p>
+          Lorem ipsum dolor sit amet. Qui sunt deserunt qui saepe nisi sed repellat incidunt eos laboriosam molestias id aliquid culpa.
+          </p>
+        </div>
+        <div class="text-end">
+          <strong>10,000 €</strong> / day
+        </div>
       </div>
     </div>
   </div>
+  <div id="map">
+  # TODO: Map setup
+  </div>
+</div>
