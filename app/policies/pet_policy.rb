@@ -6,8 +6,15 @@ class PetPolicy < ApplicationPolicy
     end
   end
 
-  def create?
+  def show?
     true
   end
 
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
 end
