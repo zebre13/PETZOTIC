@@ -1,2 +1,14 @@
-<h1>Pets#new</h1>
-<p>Find me in app/views/pets/new.html.erb</p>
+
+
+<div class="d-flex justify-content-center">
+  <%= simple_form_for(@pet) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.select :category, options_for_select(Pet::CATEGORIES), prompt: 'Select a category' %>
+    <%= f.select :specie, options_for_select(Pet::SPECIES), prompt: 'Select a specie' %>
+    <%= f.input :price %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
+ <%#  Pourquoi j'ai unpermitted param ? %>
