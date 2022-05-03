@@ -1,16 +1,19 @@
 
 
-<div class="page-background text-center d-flex flex-column justify-content-center">
+<%# <div class="page-background text-center d-flex flex-column justify-content-center"> %>
 
-  <div class="pet-search-form">
+  <%# <div class="pet-search-form">
     <form action="/pets" method="get" id="searchform">
       <input type="text" name="query" placeholder="Browse pets" id="pet-query">
       <input type="submit" value="Search a pet">
     </form>
-  </div>
+  </div> %>
 
-  <div>
+  <%# <div>
     <h1> Rent pinguins to impress your guests tonight </h1>
-  </div>
+  </div> %>
 
-</div>
+<%# </div> %>
+
+    <%= render 'components/banner' %>
+    <%= render 'components/cards' %>
