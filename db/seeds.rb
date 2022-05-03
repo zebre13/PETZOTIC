@@ -7,20 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # users
-leonor = { username: 'half monkey, half human',
+leonor = { username: 'leonor',
            address: '10 rue de paradis, 75010 Paris',
+           password: 'petzotic',
            email: 'leonor.varela91330@gmail.com' }
 
-etienne = { username: 'half monkey, half human',
+etienne = { username: 'etienne',
             address: 'avenue daumesnil, 75012 Paris',
+            password: 'petzotic',
             email: 'etiennededi@hotmail.fr' }
 
-boris = { username: 'half monkey, half human',
+boris = { username: 'boris',
           address: 'route de la pyramide, 75012 Paris',
+          password: 'petzotic',
           email: 'bourdetboris@gmail.com' }
 
-ghita = { username: 'half monkey, half human',
+ghita = { username: 'ghita',
           address: '5 avenue Albert de Mun, 75016 Paris',
+          password: 'petzotic',
           email: 'aa.ghita@gmail.com' }
 
 users = [leonor, etienne, boris, ghita]
