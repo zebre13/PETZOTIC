@@ -21,7 +21,24 @@ class PetsController < ApplicationController
     @pet.user = current_user
     authorize @pet
     if @pet.save
-      redirect_to root_path
+      redirect_to pet_path(@pet)
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @pet = Pet.find(params[:id])
+    @pet.user = current_user
+    authorize @pet
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    @pet.update(pet_params)
+    authorize @pet
+    if @pet.save
+      redirect_to pet_path(@pet)
     else
       render 'new'
     end
