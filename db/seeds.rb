@@ -78,10 +78,7 @@ def seed_pets(pets)
   photo_tarzan = File.open(Rails.root.join("public/seed_images/tarzan.jpg"))
   photo_roger = File.open(Rails.root.join("public/seed_images/roger.jpeg"))
 
-  # photo_jamila = File.read("../public/seed_images/jamila.jpeg")
-  # photo_nala = File.read("../public/seed_images/nala.jpeg")
-  # photo_roger = File.read("../public/seed_images/roger.jpeg")
-  # photo_tarzan = File.read("../public/seed_images/tarzan.jpeg")
+
   photos = [photo_carlos, photo_jamila, photo_nala, photo_roger, photo_tarzan]
 
   pets.each_with_index do |pet, index|
@@ -92,6 +89,9 @@ def seed_pets(pets)
   p 'Seeds Pets saved'
 end
 
+def seed_booking
+
+end
 
 # call methods seed
 
