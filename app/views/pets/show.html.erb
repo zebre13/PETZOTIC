@@ -11,5 +11,6 @@
 
   <%#= cl_image_tag @pet.name, height: 300, width: 400, crop: :fill %>
 
-<%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
 
+<%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
+<%= link_to 'Update your pet', edit_pet_path(@pet), class: "btn btn-primary" %>
