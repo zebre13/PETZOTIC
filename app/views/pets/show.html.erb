@@ -1,2 +1,14 @@
 <h1>Pets#show</h1>
 <p>Find me in app/views/pets/show.html.erb</p>
+
+
+<p><%= @pet.name %></p>
+<p><%= @pet.category  %></p>
+<p><%= @pet.description  %></p>
+<p><%= @pet.specie %></p>
+
+
+
+  <%#= cl_image_tag @pet.name, height: 300, width: 400, crop: :fill %>
+
+<%= link_to 'Back to list', root_path, class: "btn btn-primary" %>

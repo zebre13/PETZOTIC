@@ -1,0 +1,128 @@
+.card-product {
+  overflow: hidden;
+  width: 150px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  text-align : center;
+  margin: 30px;
+}
+
+.card-product img {
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-product-infos {
+  color: beige;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card img {
+  width: 150px;
+}
+
+.card p {
+  opacity: .5;
+}
+
+.card {
+  width: 200px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+a::before {
+  display: flex;
+}
+
+.titleprincipal{
+  padding-bottom: 24px;
+  display: flex;
+
+}
+
+.title {
+  color: #222222;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 28;
+}
+
+.gridtaille {
+  --mls-grid-col-xs: 1;
+  --mls-grid-col-sm: 2;
+  --mls-grid-col-md: 2;
+  --mls-grid-col-lg: 2;
+  --mls-grid-col-xl: 2;
+}
+
+.carte {
+  --mls-wr-cr-xs: 12px;
+  --mls-wr-cr-sm: 12px;
+  --mls-wr-cr-md: 12px;
+  --mls-wr-cr-lg: 12px;
+  --mls-wr-cr-xl: 12px;
+}
+
+.portrait {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+.photo {
+  left: 0px;
+  right: 0px;
+  object-fit: cover;
+  object-position: center center;
+  vertical-align: bottom;
+}
+
+.radius {
+  border-radius: 12px;
+  background: none;
+  display: flex;
+  padding: 24px;
+}
+
+.textes {
+  color: #ffffff;
+  --ehl-padding-bottom: 24px;
+  --ehl-justify-content: flex-start;
+  --ehl-text-align: start;
+}
+
+.deco {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 38px;
+}

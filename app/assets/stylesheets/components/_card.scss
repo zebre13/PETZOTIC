@@ -33,6 +33,12 @@
   padding: 16px;
 }
 
+#map {
+  //height: 100vh;
+  position: sticky;
+  top: 0;
+ }
+
 .card-description {
   overflow: hidden;
 }
