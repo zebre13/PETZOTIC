@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :pets
+  has_many :bookings
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 end

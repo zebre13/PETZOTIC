@@ -17,7 +17,12 @@
     <p class="alert"><%= alert %></p>
 
     <%= render 'components/navbar' %>
-</div>
-    <%= yield %>
+    <%# <%= render 'components/banner' %>
+    <%#= render 'components/cards' %>
+
+      <%= yield %>
+      <% unless params[:controller] =~ /devise/  %>
+      <%= render 'components/footer' %>
+      <% end %>
   </body>
 </html>
