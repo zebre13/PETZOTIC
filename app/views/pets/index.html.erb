@@ -1,10 +1,8 @@
 <div class="content">
   <div class="cards">
     <div class="card-pet">
-      <div class="card-img">
-        <%= image_tag "lion.jpg" %>
-      </div>
-      <div class="card-pet-info">
+      <%= image_tag "lion.jpg" %>
+      <div class="card-info">
         <div>
           Wildcats | Lion
         </div>
@@ -23,17 +21,15 @@
     </div>
     <% @pets.each do |pet| %>
       <div class="card-pet">
-        <div class="card-img">
-          <%= pet.photos %>
-        </div>
-        <div class="card-pet-info">
+        <%= pet.photos %>
+        <div class="card-info">
           <div>
             <%= pet.category %> | <%= pet.specie %>
           </div>
           <div>
             <h1><%= pet.name %></h1>
           </div>
-          <div>
+          <div class="card-description">
             <p><%= pet.description %></p>
           </div>
           <div class="text-end">
