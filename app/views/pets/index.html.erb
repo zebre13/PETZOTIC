@@ -1,25 +1,8 @@
 <div class="content">
-  <div class="cards">
-    <div class="card-pet">
-      <%= image_tag "lion.jpg" %>
-      <div class="card-info">
-        <div>
-          Wildcats | Lion
-        </div>
-        <div>
-          <h1>Simba</h1>
-        </div>
-      <div>
-          <p>
-          Lorem ipsum dolor sit amet. Qui sunt deserunt qui saepe nisi sed repellat incidunt eos laboriosam molestias id aliquid culpa.
-          </p>
-        </div>
-        <div class="text-end">
-          <strong>10,000 €</strong> / day
-        </div>
-      </div>
-    </div>
+  <div class="cards-pet">
     <% @pets.each do |pet| %>
+    <%= link_to pet_path(pet), :action => 'go' do %>
+    <div>
       <div class="card-pet">
         <%= cl_image_tag pet.photos.first.key %>
         <div class="card-info">
@@ -37,6 +20,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <% end %>
+
     <% end %>
   </div>
   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiYmJvdXJkZXQiLCJhIjoiY2wxbWcyM3N2MGptNDNvbzZpODNvMXV1bCJ9.bvAHOsqxzTXwk40xjic2DQ'>
