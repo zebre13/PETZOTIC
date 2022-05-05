@@ -3,6 +3,9 @@ class BookingsController < ApplicationController
     @user = current_user
     @pet = Pet.find(params[:id])
     @booking = Booking.new
+    authorize @pet
+    authorize @user
+    authorize @booking
   end
 
   def create
@@ -11,6 +14,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[booking_params])
     @booking.pet = @pet
     @booking.user = @user
+    authorize @user
+    authorize @pet
+    authorize @booking
     if @booking.save
       redirect_to user_path(@user)
     else
@@ -21,6 +27,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Restaurant.find(params[:id])
     @booking.destroy
+    authorize @booking
     redirect_to user_path(@user)
   end
 
