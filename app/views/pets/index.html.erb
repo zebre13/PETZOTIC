@@ -1,28 +1,3 @@
-<h1>Meet our pets!</h1>
-<p>Find me in app/views/pets/index.html.erb</p>
-
-<% @pets.each do |pet| %>
-  <div class="card-pet">
-    <div>
-      <%= pet.photos %>
-    </div>
-    <div class="card-pet-info">
-      <div>
-        <%= pet.category %> | <%= pet.specie %>
-      </div>
-      <div>
-        <%= pet.name %>
-      </div>
-      <div>
-        <%= pet.description %>
-      </div>
-      <div>
-        <strong><%= pet.price %> €</strong> / day
-      </div>
-    </div>
-  </div>
-<% end %>
-
 <div class="content">
   <div class="cards">
     <div class="card-pet">
@@ -46,8 +21,27 @@
         </div>
       </div>
     </div>
+    <% @pets.each do |pet| %>
+      <div class="card-pet">
+        <div class="card-img">
+          <%= pet.photos %>
+        </div>
+        <div class="card-pet-info">
+          <div>
+            <%= pet.category %> | <%= pet.specie %>
+          </div>
+          <div>
+            <h1><%= pet.name %></h1>
+          </div>
+          <div>
+            <p><%= pet.description %></p>
+          </div>
+          <div class="text-end">
+            <p><strong><%= pet.price %> €</strong> / day</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div id="map">
-  # TODO: Map setup
-  </div>
+  <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiYmJvdXJkZXQiLCJhIjoiY2wxbWcyM3N2MGptNDNvbzZpODNvMXV1bCJ9.bvAHOsqxzTXwk40xjic2DQ'>
 </div>

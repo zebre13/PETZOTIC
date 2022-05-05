@@ -3,6 +3,8 @@
 }
 
 .cards {
+  display: grid;
+  grid-gap: 16px;
   padding: 16px;
   flex-grow: 1;
   top: 0;
@@ -22,6 +24,7 @@
 
 .card-img {
   background: cover;
+  border-radius: 4px;
 }
 
 .card-info {
@@ -31,4 +34,5 @@
 #map {
   //height: 100vh;
   position: sticky;
+  top: 0;
 }

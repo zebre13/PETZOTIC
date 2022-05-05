@@ -3,7 +3,9 @@
   background: white;
   padding-top: 0%;
   padding-bottom: 8px;
-  
+
+  background-image: url("navbar-img.jpg"); //previously: background: white
+  // background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,4 +14,5 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  border-radius: 50%;
 }
