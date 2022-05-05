@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   CATEGORIES = %w(mammal categorie2 categorie3 modifier_dans_pet.rb)
   SPECIES = ['Mi-monkey, mi-man', 'Bengal tiger', 'African gorilla', 'Java Rhinoceros', 'Hirola']
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many_attached :photos
 
   validates :name, presence: true, uniqueness: true
