@@ -1,10 +1,13 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    @pets = Pet.all
+    @pets = policy_scope(Pet)
   end
 
   def show
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def new
