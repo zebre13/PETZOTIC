@@ -1,14 +1,11 @@
 <h1>Pets#show</h1>
 <p>Find me in app/views/pets/show.html.erb</p>
 
+<div class="container pet-show">
 
-<p><%= @pet.name %></p>
-<p><%= @pet.category  %></p>
-<p><%= @pet.description  %></p>
-<p><%= @pet.specie %></p>
-
-
-
-
-<%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
-
+  <p><%= @pet.name %></p>
+  <p><%= @pet.category  %></p>
+  <p><%= @pet.description  %></p>
+  <p><%= @pet.specie %></p>
+  <%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
+</div>
