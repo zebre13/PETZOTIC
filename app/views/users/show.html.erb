@@ -1,7 +1,19 @@
-<h1>My User Dashboard</h1>
+<h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard!</h1>
 
 <%= @user.email %>
 <%= @user.username %>
 <%= @user.address %>
-<%= @user.booking.all %>
-<%= @user.pet.all %>
+<%= @user.bookings.all %>
+<%= @user.pets.all %>
+
+<div class="container">
+  <div>
+    <h1>My details</h1>
+  </div>
+  <div>
+    <h1>My Pets</h1>
+  </div>
+  <div>
+    <h1>My Bookings</h1>
+  </div>
+</div>
