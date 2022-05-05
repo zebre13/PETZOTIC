@@ -21,6 +21,8 @@
     <%#= render 'components/cards' %>
 
       <%= yield %>
+      <% unless params[:controller] =~ /devise/  %>
       <%= render 'components/footer' %>
+      <% end %>
   </body>
 </html>

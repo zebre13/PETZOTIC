@@ -57,3 +57,72 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
+
+a::before {
+  display: flex;
+}
+
+.titleprincipal{
+  padding-bottom: 24px;
+  display: flex;
+
+}
+
+.title {
+  color: #222222;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 28;
+}
+
+.gridtaille {
+  --mls-grid-col-xs: 1;
+  --mls-grid-col-sm: 2;
+  --mls-grid-col-md: 2;
+  --mls-grid-col-lg: 2;
+  --mls-grid-col-xl: 2;
+}
+
+.carte {
+  --mls-wr-cr-xs: 12px;
+  --mls-wr-cr-sm: 12px;
+  --mls-wr-cr-md: 12px;
+  --mls-wr-cr-lg: 12px;
+  --mls-wr-cr-xl: 12px;
+}
+
+.portrait {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+.photo {
+  left: 0px;
+  right: 0px;
+  object-fit: cover;
+  object-position: center center;
+  vertical-align: bottom;
+}
+
+.radius {
+  border-radius: 12px;
+  background: none;
+  display: flex;
+  padding: 24px;
+}
+
+.textes {
+  color: #ffffff;
+  --ehl-padding-bottom: 24px;
+  --ehl-justify-content: flex-start;
+  --ehl-text-align: start;
+}
+
+.deco {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 38px;
+}
