@@ -1,20 +1,36 @@
-<h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard!</h1>
-
-
-
 <div class="container">
-  <div>
-    <h1>My details</h1>
-    <p><%= @user.username %></p>
-    <p><%= @user.email %></p>
-    <p><%= @user.address %></p>
+  <div class="card-dashboard-menu">
+    <h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard!</h1>
+</div>
+
+  <div class="card-dashboard">
+    <h1>My Profile</h1>
+    <p><strong>Username:</strong> <%= @user.username.capitalize %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Address:</strong> <%= @user.address %></p>
   </div>
-  <div>
+
+  <div class="card-dashboard">
     <h1>My Pets</h1>
-    <p><%= @user.pets.all %></p>
+    <% @user.pets.all.each do |pet| %>
+    <ul>
+      <li>
+        <%= pet.name %>
+        (<%= pet.specie %>) -
+        <%= link_to 'Edit', edit_pet_path(pet) %>
+      </li>
+    </ul>
+    <% end %>
   </div>
-  <div>
+
+  <div class="card-dashboard">
     <h1>My Bookings</h1>
-    <p><%= @user.bookings.all %></p>
+    <% @user.bookings.all.each do |booking| %>
+    <p><%= Pet.find(booking.pet_id).name %></p>
+    <p><%= User.find(booking.user_id).username %></p>
+    <p><%= booking.start_date %></p>
+    <p><%= booking.end_date %></p>
+    <p><%= booking.confirmed %></p>
+    <% end %>
   </div>
 </div>
