@@ -76,19 +76,57 @@ nala = { category: 'mammal',
 pets = [tarzan, roger, jamila, carlos, nala]
 
 def seed_pets(pets)
-  photo_carlos = File.open(Rails.root.join("public/seed_images/carlos.jpeg"))
-  photo_jamila = File.open(Rails.root.join("public/seed_images/jamila.jpeg"))
-  photo_nala = File.open(Rails.root.join("public/seed_images/nala.jpg"))
-  photo_tarzan = File.open(Rails.root.join("public/seed_images/tarzan.jpg"))
-  photo_roger = File.open(Rails.root.join("public/seed_images/roger.jpeg"))
+  #carlos
+  photo_carlos_1 = File.open(Rails.root.join("public/seed_images/carlos_1.jpg"))
+  photo_carlos_2 = File.open(Rails.root.join("public/seed_images/carlos_2.jpg"))
+  photo_carlos_3 = File.open(Rails.root.join("public/seed_images/carlos_3.jpg"))
+  photo_carlos_4 = File.open(Rails.root.join("public/seed_images/carlos_4.jpg"))
+  photo_carlos_5 = File.open(Rails.root.join("public/seed_images/carlos_5.jpg"))
+  photo_carlos = [photo_carlos_1, photo_carlos_2, photo_carlos_3, photo_carlos_4, photo_carlos_5]
 
+  #jamila
+  photo_jamila_1 = File.open(Rails.root.join("public/seed_images/jamila_1.jpg"))
+  photo_jamila_2 = File.open(Rails.root.join("public/seed_images/jamila_2.jpg"))
+  photo_jamila_3 = File.open(Rails.root.join("public/seed_images/jamila_3.jpg"))
+  photo_jamila_4 = File.open(Rails.root.join("public/seed_images/jamila_4.jpg"))
+  photo_jamila_5 = File.open(Rails.root.join("public/seed_images/jamila_5.jpg"))
+  photo_jamila = [photo_jamila_1, photo_jamila_2, photo_jamila_3, photo_jamila_4, photo_jamila_5]
+
+  #nala
+  photo_nala_1 = File.open(Rails.root.join("public/seed_images/nala_1.jpg"))
+  photo_nala_2 = File.open(Rails.root.join("public/seed_images/nala_2.jpg"))
+  photo_nala_3 = File.open(Rails.root.join("public/seed_images/nala_3.jpg"))
+  photo_nala_4 = File.open(Rails.root.join("public/seed_images/nala_4.jpg"))
+  photo_nala_5 = File.open(Rails.root.join("public/seed_images/nala_5.jpg"))
+  photo_nala = [photo_nala_1, photo_nala_2, photo_nala_3, photo_nala_4, photo_nala_5]
+
+
+  #tarzan
+  photo_tarzan_1 = File.open(Rails.root.join("public/seed_images/tarzan_1.jpg"))
+  photo_tarzan_2 = File.open(Rails.root.join("public/seed_images/tarzan_2.jpg"))
+  photo_tarzan_3 = File.open(Rails.root.join("public/seed_images/tarzan_3.jpg"))
+  photo_tarzan_4 = File.open(Rails.root.join("public/seed_images/tarzan_4.jpg"))
+  photo_tarzan_5 = File.open(Rails.root.join("public/seed_images/tarzan_5.jpg"))
+  photo_tarzan = [photo_tarzan_1, photo_tarzan_2, photo_tarzan_3, photo_tarzan_4, photo_tarzan_5]
+
+  #roger
+  photo_roger_1 = File.open(Rails.root.join("public/seed_images/roger_1.jpg"))
+  photo_roger_2 = File.open(Rails.root.join("public/seed_images/roger_2.jpg"))
+  photo_roger_3 = File.open(Rails.root.join("public/seed_images/roger_3.jpg"))
+  photo_roger_4 = File.open(Rails.root.join("public/seed_images/roger_4.jpg"))
+  photo_roger_5 = File.open(Rails.root.join("public/seed_images/roger_5.jpg"))
+  photo_roger = [photo_roger_1, photo_roger_2, photo_roger_3, photo_roger_4, photo_roger_5]
 
 
   photos = [photo_tarzan, photo_roger, photo_jamila, photo_carlos, photo_nala]
 
   pets.each_with_index do |pet, index|
     animal = Pet.new(pet.merge({ user: User.all.sample }))
-    animal.photos.attach(io: photos[index], filename: pet, content_type: 'jpeg')
+    animal.photos.attach(io: photos[index][0], filename: pet, content_type: 'jpg')
+    animal.photos.attach(io: photos[index][1], filename: pet, content_type: 'jpg')
+    animal.photos.attach(io: photos[index][2], filename: pet, content_type: 'jpg')
+    animal.photos.attach(io: photos[index][3], filename: pet, content_type: 'jpg')
+    animal.photos.attach(io: photos[index][4], filename: pet, content_type: 'jpg')
     animal.save!
   end
   p 'Seeds Pets saved'
