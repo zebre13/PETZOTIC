@@ -31,7 +31,25 @@ class BookingsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to dashboard_path
+    else
+      notice[:message, "Update didn't work"]
+    end
+  end
+
+  private
+
   def booking_params
-    params.require(:booking).permit(:confirmed, :starting_date, :ending_date)
+    params.require(:booking).permit(:confirmed, :starting_date, :ending_date, :status)
   end
 end
