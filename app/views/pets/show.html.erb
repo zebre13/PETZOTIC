@@ -9,8 +9,14 @@
   <p><%= @pet.description  %></p>
   <p><%= @pet.specie %></p>
 
-  <%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
+  <%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
   <% if policy(@pet).edit? %>
-  <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
+    <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
   <% end %>
+  <%# if policy(@pet).destroy? %>
+    <%#= link_to "Remove",
+                    pet_path(@pet),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+  <%# end %>
 </div>
