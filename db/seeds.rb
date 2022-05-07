@@ -86,7 +86,6 @@ nala = { category: 'mammal',
 pets = [tarzan, roger, jamila, carlos, nala]
 
 def seed_pets(pets)
-
   #carlos
   photo_carlos_1 = File.open(Rails.root.join("public/seed_images/carlos_1.jpg"))
   photo_carlos_2 = File.open(Rails.root.join("public/seed_images/carlos_2.jpg"))
