@@ -1,16 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Pet.destroy_all
-User.destroy_all
-# users
 Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
+
+# users
 
 leonor = { username: 'leonor',
            address: '10 rue de paradis, 75010 Paris',
@@ -48,7 +40,7 @@ created_users = User.all
 
 tarzan = { category: 'mammal',
            name: 'Tarzan',
-           description: 'Tarzan is not very evolved. He descends from the monkey, the tree and the neighbour, but don\'t hold it against him. Unfortunately, he will not be able to show great subtlety, but will know how to defend your home and your wife, if you have one. If you don\'t have one, pretend to have one and it will make the animal very happy. It can smell a little strong sometimes, but we rent with it a tropical atmosphere mist to delicately embalm your interior.',
+           description: 'Tarzan is not very evolved. He descends from the monkey, the tree and the neighbour, but don\'t hold it against him. Unfortunately, he will not be able to show great subtlety, but will know how to defend your home and your wife, if you have one. If you don\'t, pretend to have one and it will make the animal very happy. It can smell a little strong sometimes, but we rent with it a tropical atmosphere mist to delicately embalm your interior.',
            price: 2,
            specie: 'Mi-monkey, mi-man'
            }
@@ -62,7 +54,7 @@ roger = { category: 'mammal',
 
 jamila = { category: 'mammal',
            name: 'Jamila',
-           description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homework. Easy as a monkey.',
+           description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homeworks. Easy as a monkey.',
            price: 38,
            specie: 'African gorilla'
 
@@ -76,7 +68,7 @@ carlos = { category: 'mammal',
 
 nala = { category: 'mammal',
          name: 'Nala',
-         description: 'Long brown horns, gazelle smile and doe eyes, Nala is present damn well. She will impress your in-laws with her good manners. You can also use its horns as coat racks, bag holders on the go or changing rooms at a party, if it runs out',
+         description: 'Long brown horns, gazelle smile and doe eyes, Nala is really good looking. She will impress your in-laws familly with her good manners. You can also use its horns as coat racks, bag holders on the go or vestiaire at a party, if it runs out',
          price: 1030,
          specie: 'Hirola'
         }
