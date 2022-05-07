@@ -3,7 +3,7 @@ class Pet < ApplicationRecord
   SPECIES = ['Mi-monkey, mi-man', 'Bengal tiger', 'African gorilla', 'Java Rhinoceros', 'Hirola']
   belongs_to :user
   has_many_attached :photos
-
+  has_many :bookings
   validates :name, presence: true, uniqueness: true
   validates :specie, presence: true, inclusion: { in: SPECIES,
                                                   message: "%{value} is not a valid specie" }
