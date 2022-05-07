@@ -7,7 +7,6 @@ boris = { username: 'boris',
           password: 'petzotic',
           email: 'bourdetboris@gmail.com' }
 
-
 etienne = { username: 'etienne',
             address: 'avenue daumesnil, 75012 Paris',
             password: 'petzotic',
