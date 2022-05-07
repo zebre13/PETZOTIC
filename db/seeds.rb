@@ -4,31 +4,40 @@ User.destroy_all
 
 # users
 
-leonor = { username: 'leonor',
-           address: '10 rue de paradis, 75010 Paris',
-           password: 'petzotic',
-           email: 'leonor.varela91330@gmail.com' }
+boris = { username: 'boris',
+          address: 'route de la pyramide, 75012 Paris',
+          password: 'petzotic',
+          email: 'bourdetboris@gmail.com' }
 
 etienne = { username: 'etienne',
             address: 'avenue daumesnil, 75012 Paris',
             password: 'petzotic',
             email: 'etiennededi@hotmail.fr' }
 
-boris = { username: 'boris',
-          address: 'route de la pyramide, 75012 Paris',
-          password: 'petzotic',
-          email: 'bourdetboris@gmail.com' }
-
 ghita = { username: 'ghita',
           address: '5 avenue Albert de Mun, 75016 Paris',
           password: 'petzotic',
           email: 'aa.ghita@gmail.com' }
 
-users = [leonor, etienne, boris, ghita]
+leonor = { username: 'leonor',
+           address: '10 rue de paradis, 75010 Paris',
+           password: 'petzotic',
+           email: 'leonor.varela91330@gmail.com' }
+
+users = [boris, etienne, ghita, leonor]
 
 def seed_users(users)
-  users.each do |user|
-    User.new(user).save!
+  photo_boris = File.open(Rails.root.join("public/seed_images/boris.jpg"))
+  photo_etienne = File.open(Rails.root.join("public/seed_images/etienne.jpg"))
+  photo_ghita = File.open(Rails.root.join("public/seed_images/ghita.jpg"))
+  photo_maria = File.open(Rails.root.join("public/seed_images/maria.jpg"))
+
+  photos = [photo_boris, photo_etienne, photo_ghita, photo_maria]
+
+  users.each_with_index do |user, index|
+    profil = User.new(user)
+    profil.photos.attach(io: photos[index], filename: user, content_type: 'jpg')
+    profil.save!
   end
   p 'Seeds Users saved'
 end
@@ -126,7 +135,7 @@ def seed_pets(pets)
     animal.photos.attach(io: photos[index][2], filename: pet, content_type: 'jpg')
     animal.photos.attach(io: photos[index][3], filename: pet, content_type: 'jpg')
     animal.photos.attach(io: photos[index][4], filename: pet, content_type: 'jpg')
-    animal.save!
+    animal.save
   end
   p 'Seeds Pets saved'
 end
