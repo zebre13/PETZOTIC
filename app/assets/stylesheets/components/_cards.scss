@@ -1,11 +1,13 @@
 .card-product {
   overflow: hidden;
-  width: 150px;
+  width: 200px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   text-align : center;
   margin: 30px;
+  border-radius: 20px;
 }
 
 .card-product img {
@@ -14,7 +16,7 @@
 }
 
 .card-product-infos {
-  color: beige;
+  color: black;
 }
 
 .card-product h2 {
@@ -82,6 +84,8 @@ a::before {
   --mls-grid-col-md: 2;
   --mls-grid-col-lg: 2;
   --mls-grid-col-xl: 2;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 20px;
 }
 
 .carte {
@@ -107,8 +111,6 @@ a::before {
 }
 
 .radius {
-  border-radius: 12px;
-  background: none;
   display: flex;
   padding: 24px;
 }
@@ -118,11 +120,4 @@ a::before {
   --ehl-padding-bottom: 24px;
   --ehl-justify-content: flex-start;
   --ehl-text-align: start;
-}
-
-.deco {
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 38px;
 }
