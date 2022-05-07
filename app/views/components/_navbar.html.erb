@@ -18,13 +18,16 @@
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li >
-            <%= link_to dashboard_path, :action => 'go' do %>
-            <li class="nav-item">
-              <% if @user %>
-                <%= cl_image_tag @user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to dashboard_path do %>
+            <li >
+              <% if user_signed_in? %>
+                <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle"%>
+
               <% end %>
             <% end %>
             </li>
+
+            <%# attention à cette ligne = , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <%# <li class="nav-item dropdown">
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
             <%#= link_to "Action", "#", class: "dropdown-item" %>

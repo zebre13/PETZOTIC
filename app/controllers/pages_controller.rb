@@ -12,6 +12,5 @@ class PagesController < ApplicationController
   end
 
   def home
-    @user = current_user
   end
 end
