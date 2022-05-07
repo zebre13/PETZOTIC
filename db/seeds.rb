@@ -147,3 +147,5 @@ seed_pets(pets)
 Booking.create(user_id: 3, pet_id: 3, starting_date: Date.yesterday, ending_date: Date.tomorrow, status: 0)
 Booking.create(user_id: 3, pet_id: 2, starting_date: Date.yesterday, ending_date: Date.tomorrow, status: 1)
 Booking.create(user_id: 3, pet_id: 1, starting_date: Date.yesterday, ending_date: Date.tomorrow, status: 2)
+
+p 'Seeds Pets saved'
