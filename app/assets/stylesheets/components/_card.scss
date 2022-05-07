@@ -34,9 +34,11 @@
 }
 
 #map {
-  //height: 100vh;
+  height: 100vh;
   position: sticky;
   top: 0;
+  margin-top: 16px;
+  margin-right: 16px;
  }
 
 .card-description {
@@ -53,10 +55,6 @@
 
   h1 {
     color: $gray;
-  }
-
-  a {
-
   }
 }
 

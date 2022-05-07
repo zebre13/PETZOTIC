@@ -4,6 +4,9 @@ class Pet < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
   has_many :bookings
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  
   validates :name, presence: true, uniqueness: true
   validates :specie, presence: true, inclusion: { in: SPECIES,
                                                   message: "%{value} is not a valid specie" }

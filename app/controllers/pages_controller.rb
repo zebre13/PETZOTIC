@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     @accepted_bookings_as_owner = @user.bookings_as_owner.select{|booking| booking.accepted?}
     @rejected_bookings = @user.bookings.all.select{|booking| booking.rejected?}
   end
+
+  def home
+    @user = current_user
+  end
 end
