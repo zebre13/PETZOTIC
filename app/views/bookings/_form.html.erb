@@ -1,5 +1,7 @@
-<%= simple_form_for(@pet, @booking) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+<div class="booki d-flex justify-content-around">
+  <%= simple_form_for([@pet, @booking]) do |f| %>
+  <%= f.input :starting_date %>
+  <%= f.input :ending_date %>
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

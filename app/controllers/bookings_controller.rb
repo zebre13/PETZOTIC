@@ -10,15 +10,15 @@ class BookingsController < ApplicationController
 
   def create
     @user = current_user
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new(params[booking_params])
     @booking.pet = @pet
     @booking.user = @user
-    authorize @user
-    authorize @pet
+    # authorize @user
+    # authorize @pet
     authorize @booking
     if @booking.save
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       render :pet
     end
