@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Pet.destroy_all
+User.destroy_all
 # users
 Booking.destroy_all
 Pet.destroy_all
@@ -40,7 +41,10 @@ def seed_users(users)
   p 'Seeds Users saved'
 end
 
+seed_users(users)
+
 # pets
+created_users = User.all
 
 tarzan = { category: 'mammal',
            name: 'Tarzan',
@@ -49,8 +53,6 @@ tarzan = { category: 'mammal',
            specie: 'Mi-monkey, mi-man'
            }
 
-
-
 roger = { category: 'mammal',
           name: 'Roger',
           description: "Soft and kind as a kitten, roger will go perfectly with your interior. He has a neat coat like the carpet and brown whiskers that will match very well with your curtains whatever their color. He doesn't eat much, at set times, of course. If he bothers you by making too much noise, we even have a small electric collar that will do the job of silence perfectly.",
@@ -58,14 +60,11 @@ roger = { category: 'mammal',
           specie: 'Bengal tiger'
           }
 
-
-
 jamila = { category: 'mammal',
            name: 'Jamila',
            description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homework. Easy as a monkey.',
            price: 38,
            specie: 'African gorilla'
-          }
 
 
 carlos = { category: 'mammal',
@@ -75,14 +74,12 @@ carlos = { category: 'mammal',
            specie: 'Java Rhinoceros'
           }
 
-
 nala = { category: 'mammal',
          name: 'Nala',
          description: 'Long brown horns, gazelle smile and doe eyes, Nala is present damn well. She will impress your in-laws with her good manners. You can also use its horns as coat racks, bag holders on the go or changing rooms at a party, if it runs out',
          price: 1030,
          specie: 'Hirola'
         }
-
 
 pets = [tarzan, roger, jamila, carlos, nala]
 
@@ -105,13 +102,8 @@ def seed_pets(pets)
   p 'Seeds Pets saved'
 end
 
-def seed_booking
-
-end
-
 # call methods seed
 
-seed_users(users)
 seed_pets(pets)
 
 user = User.create(email: "test@test.com", password: "azerty")
