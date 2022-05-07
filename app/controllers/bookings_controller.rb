@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @pet = Pet.find(params[:pet_id])
-    @booking = Booking.new(params[booking_params])
+    @booking = Booking.new(booking_params)
     @booking.pet = @pet
     @booking.user = @user
     # authorize @user
