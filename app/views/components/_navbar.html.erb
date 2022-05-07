@@ -22,6 +22,7 @@
             <li >
               <% if user_signed_in? %>
                 <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle"%>
+
               <% end %>
             <% end %>
             </li>
