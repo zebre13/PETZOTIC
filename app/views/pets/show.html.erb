@@ -10,5 +10,7 @@
   <p><%= @pet.specie %></p>
 
   <%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
+  <% if policy(@pet).edit? %>
+  <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
+  <% end %>
 </div>
-
