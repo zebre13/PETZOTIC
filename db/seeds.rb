@@ -117,7 +117,6 @@ def seed_pets(pets)
   photo_roger_5 = File.open(Rails.root.join("public/seed_images/roger_5.jpg"))
   photo_roger = [photo_roger_1, photo_roger_2, photo_roger_3, photo_roger_4, photo_roger_5]
 
-
   photos = [photo_tarzan, photo_roger, photo_jamila, photo_carlos, photo_nala]
 
   pets.each_with_index do |pet, index|
