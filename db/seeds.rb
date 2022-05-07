@@ -36,7 +36,6 @@ end
 seed_users(users)
 
 # pets
-created_users = User.all
 
 tarzan = { category: 'mammal',
            name: 'Tarzan',
@@ -100,7 +99,6 @@ def seed_pets(pets)
   photo_nala_5 = File.open(Rails.root.join("public/seed_images/nala_5.jpg"))
   photo_nala = [photo_nala_1, photo_nala_2, photo_nala_3, photo_nala_4, photo_nala_5]
 
-
   #tarzan
   photo_tarzan_1 = File.open(Rails.root.join("public/seed_images/tarzan_1.jpg"))
   photo_tarzan_2 = File.open(Rails.root.join("public/seed_images/tarzan_2.jpg"))
@@ -131,11 +129,11 @@ def seed_pets(pets)
   p 'Seeds Pets saved'
 end
 
-# call methods seed
-
 seed_pets(pets)
 
-user = User.create(email: "test@test.com", password: "azerty")
+# bookings
+
+user = User.first
 pet = Pet.first
 booking = Booking.new(starting_date: Date.today, ending_date: Date.tomorrow, user: user, pet: pet)
 booking.save!
