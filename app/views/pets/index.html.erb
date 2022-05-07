@@ -13,7 +13,10 @@
             <h1><%= pet.name %></h1>
           </div>
           <div class="card-description">
-            <p><%= pet.description %></p>
+            <p class="overflow-ellipsis"><%= pet.description %></p>
+          </div>
+          <div>
+            <p>(...)</p>
           </div>
           <div class="text-end">
             <p><strong><%= pet.price %> €</strong> / day</p>
