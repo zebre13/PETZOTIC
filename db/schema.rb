@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_190833) do
+
+ActiveRecord::Schema.define(version: 2022_05_07_104337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +49,9 @@ ActiveRecord::Schema.define(version: 2022_05_03_190833) do
     t.bigint "pet_id", null: false
     t.datetime "starting_date"
     t.datetime "ending_date"
-    t.boolean "confirmed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["pet_id"], name: "index_bookings_on_pet_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -65,6 +66,9 @@ ActiveRecord::Schema.define(version: 2022_05_03_190833) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
