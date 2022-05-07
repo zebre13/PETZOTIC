@@ -28,8 +28,8 @@
     <% @user.bookings.all.each do |booking| %>
     <p><%= Pet.find(booking.pet_id).name %></p>
     <p><%= User.find(booking.user_id).username %></p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
+    <p><%= booking.starting_date %></p>
+    <p><%= booking.ending_date %></p>
     <p><%= booking.confirmed %></p>
     <% end %>
   </div>
