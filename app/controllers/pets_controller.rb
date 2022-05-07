@@ -3,6 +3,16 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet)
+    p @pets.count
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet })
+      }
+    end
+    @markers.count
   end
 
   def show
@@ -45,6 +55,13 @@ class PetsController < ApplicationController
       render 'new'
     end
   end
+
+  # def destroy
+  #   @pet = Pet.find(params[:id])
+  #   @pet.destroy
+  #   authorize @pet
+  #   redirect_to pets_path
+  # end
 
   private
 

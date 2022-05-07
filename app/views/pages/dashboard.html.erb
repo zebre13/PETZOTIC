@@ -1,13 +1,21 @@
 <div class="container">
 
   <div class="card-dashboard-menu">
+  <% if @user.username %>
     <h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard!</h1>
+  <% else %>
+    <h1> Welcome to your dashboard</h1>
+  <% end  %>
 </div>
 
   <div class="card-dashboard">
     <h1>My Profile</h1>
-    <p><strong>Username:</strong> <%= @user.username.capitalize %></p>
-    <p><strong>Email:</strong> <%= @user.email %></p>
+    <% if @user.username %>
+      <p><strong>Username:</strong> <%= @user.username.capitalize %></p>
+      <p><strong>Email:</strong> <%= @user.email %></p>
+    <% else %>
+      <p><strong>Username:</strong> <%= @user.email %></p>
+    <% end %>
     <p><strong>Address:</strong> <%= @user.address %></p>
   </div>
 
@@ -25,13 +33,56 @@
   </div>
 
   <div class="card-dashboard">
-    <h1>My Bookings</h1>
-    <% @user.bookings.all.each do |booking| %>
-    <p><%= Pet.find(booking.pet_id).name %></p>
-    <p><%= User.find(booking.user_id).username %></p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-    <p><%= booking.confirmed %></p>
-    <% end %>
+
+    <div class="pending">
+      <h1>Pending Bookings (<%= @pending_bookings.count %>)</h1>
+      <% @pending_bookings.each do |pending_booking| %>
+        <div class="card-pending-booking border">
+          <h4>- Waiting for <%= pending_booking.pet.user.username %> to confirm your booking of <%= Pet.find(pending_booking.pet_id).name %></h4>
+        </div>
+      <% end %>
+
+      <h1>Pending Bookings of your Pets (<%= @pending_bookings_as_owner.count %>)</h1>
+      <% @pending_bookings_as_owner.each do |pending_booking_as_owner| %>
+        <div class="border">
+          <h3> <%= User.find(pending_booking_as_owner.user_id).username %> wants to rent your pet <%= Pet.find(pending_booking_as_owner.pet_id).name  %> </h3>
+            <p>From: <%= pending_booking_as_owner.starting_date.strftime("%a %e %b %y") %></p>
+            <p>To: <%= pending_booking_as_owner.ending_date.strftime("%a %e %b %y")  %></p> <br>
+            Accept or decline here. <br>
+            <p>Price: <%= ((pending_booking_as_owner.ending_date - pending_booking_as_owner.starting_date)/86400) * Pet.find(pending_booking_as_owner.pet_id).price %>€</p>
+            <%= simple_form_for(pending_booking_as_owner) do |t| %>
+              <%= t.input :status, as: :select, collection: Booking.statuses.keys, selected: 1, required: true %> %>
+              <%= t.submit  %>
+            <% end %>
+        </div>
+      <% end %>
+
+
+
+    </div>
+
+    <div class="accepted">
+      <h1>Accepted Bookings (<%= @accepted_bookings.count %>)</h1>
+      <% @accepted_bookings.each do |accepted_booking| %>
+        <div class="card-accepted-booking">
+          Booking confirmed. You can get your new pet <%= Pet.find(accepted_booking.pet_id).name  %>! <br>
+          <p>From: <%= accepted_booking.starting_date.strftime("%a %e %b %y") %></p>
+          <p>To: <%= accepted_booking.ending_date.strftime("%a %e %b %y")  %></p>
+          <p>Price: <%= ((accepted_booking.ending_date - accepted_booking.starting_date)/86400) * Pet.find(accepted_booking.pet_id).price %>€</p>
+        </div>
+      <% end %>
+
+      <h1>Your Pets Bookings  (<%= @accepted_bookings.count %>)</h1>
+      <% @accepted_bookings_as_owner.each do |accepted_booking| %>
+        <div class="card-accepted-booking">
+          Booking confirmed. You can get your new pet <%= Pet.find(accepted_booking.pet_id).name  %>! <br>
+          <p>From: <%= accepted_booking.starting_date.strftime("%a %e %b %y") %></p>
+          <p>To: <%= accepted_booking.ending_date.strftime("%a %e %b %y")  %></p>
+          <p>Price: <%= ((accepted_booking.ending_date - accepted_booking.starting_date)/86400) * Pet.find(accepted_booking.pet_id).price %>€</p>
+        </div>
+      <% end %>
+    </div>
+
   </div>
+
 </div>
