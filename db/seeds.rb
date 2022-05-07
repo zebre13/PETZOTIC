@@ -1,12 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# users
+User.destroy_all
+Pet.destroy_all
+Booking.destroy_all
 
 
 boris = { username: 'boris',
@@ -47,6 +41,8 @@ def seed_users(users)
   end
   p 'Seeds Users saved'
 end
+
+seed_users(users)
 
 # pets
 
@@ -118,7 +114,6 @@ def seed_pets(pets)
   photo_nala_5 = File.open(Rails.root.join("public/seed_images/nala_5.jpg"))
   photo_nala = [photo_nala_1, photo_nala_2, photo_nala_3, photo_nala_4, photo_nala_5]
 
-
   #tarzan
   photo_tarzan_1 = File.open(Rails.root.join("public/seed_images/tarzan_1.jpg"))
   photo_tarzan_2 = File.open(Rails.root.join("public/seed_images/tarzan_2.jpg"))
@@ -149,11 +144,9 @@ def seed_pets(pets)
   p 'Seeds Pets saved'
 end
 
-
-# call methods seed
-
-seed_users(users)
 seed_pets(pets)
+
+# bookings
 
 Booking.create(user_id: 3, pet_id: 3, starting_date: Date.yesterday, ending_date: Date.tomorrow, status: 0)
 Booking.create(user_id: 3, pet_id: 2, starting_date: Date.yesterday, ending_date: Date.tomorrow, status: 1)

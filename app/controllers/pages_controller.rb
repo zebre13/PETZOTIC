@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     @pending_bookings = @user.bookings.all.select{|booking| booking.pending?}
     @rejected_bookings = @user.bookings.all.select{|booking| booking.rejected?}
   end
+
+  def home
+    @user = current_user
+  end
 end
