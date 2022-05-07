@@ -1,16 +1,22 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
 
+<div class="container pet-show">
 
-<p><%= @pet.name %></p>
-<p><%= @pet.category  %></p>
-<p><%= @pet.specie %></p>
-<p><%= @pet.description  %></p>
+  <% @pet.photos.each do |pet_photo|%>
+    <%= cl_image_tag pet_photo.key %>
+    <% end %>
+  <p><%= @pet.name %></p>
+  <p><%= @pet.category  %></p>
+  <p><%= @pet.description  %></p>
+  <p><%= @pet.specie %></p>
 
-
-
-  <%#= cl_image_tag @pet.name, height: 300, width: 400, crop: :fill %>
-
-
-<%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
-<%= link_to 'Update your pet', edit_pet_path(@pet), class: "btn btn-primary" %>
+  <%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
+  <% if policy(@pet).edit? %>
+    <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
+  <% end %>
+  <%# if policy(@pet).destroy? %>
+    <%#= link_to "Remove",
+                    pet_path(@pet),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+  <%# end %>
+</div>

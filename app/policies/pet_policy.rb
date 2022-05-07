@@ -19,11 +19,15 @@ class PetPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    record.user == user
   end
 
   def update?
     true
   end
+
+  # def destroy?
+  #   record.user == user
+  # end
 
 end
