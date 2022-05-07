@@ -62,8 +62,18 @@
     </div>
 
     <div class="accepted">
-      <h1>Accepted Bookings</h1>
+      <h1>Accepted Bookings (<%= @accepted_bookings.count %>)</h1>
       <% @accepted_bookings.each do |accepted_booking| %>
+        <div class="card-accepted-booking">
+          Booking confirmed. You can get your new pet <%= Pet.find(accepted_booking.pet_id).name  %>! <br>
+          <p>From: <%= accepted_booking.starting_date.strftime("%a %e %b %y") %></p>
+          <p>To: <%= accepted_booking.ending_date.strftime("%a %e %b %y")  %></p>
+          <p>Price: <%= ((accepted_booking.ending_date - accepted_booking.starting_date)/86400) * Pet.find(accepted_booking.pet_id).price %>€</p>
+        </div>
+      <% end %>
+
+      <h1>Your Pets Bookings  (<%= @accepted_bookings.count %>)</h1>
+      <% @accepted_bookings_as_owner.each do |accepted_booking| %>
         <div class="card-accepted-booking">
           Booking confirmed. You can get your new pet <%= Pet.find(accepted_booking.pet_id).name  %>! <br>
           <p>From: <%= accepted_booking.starting_date.strftime("%a %e %b %y") %></p>
