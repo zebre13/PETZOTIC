@@ -57,7 +57,7 @@ jamila = { category: 'mammal',
            description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homeworks. Easy as a monkey.',
            price: 38,
            specie: 'African gorilla'
-
+}
 
 carlos = { category: 'mammal',
            name: 'Carlos',
