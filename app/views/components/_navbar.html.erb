@@ -20,7 +20,7 @@
           </li >
             <%= link_to dashboard_path, :action => 'go' do %>
             <li class="nav-item">
-              <% if @user.id %>
+              <% if @user %>
                 <%= cl_image_tag @user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
             <% end %>
