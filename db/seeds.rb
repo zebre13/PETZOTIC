@@ -1,6 +1,6 @@
-User.destroy_all
-Pet.destroy_all
 Booking.destroy_all
+Pet.destroy_all
+User.destroy_all
 
 
 boris = { username: 'boris',
@@ -54,10 +54,9 @@ tarzan = { category: 'mammal',
            user_id: 1,
            price: 300 }
 
-
 roger = { category: 'mammal',
           name: 'Roger',
-          address: 'Rue du Pavillon de Montreuil, 78770 Thoiry',
+          address: '17 Place Vendôme, 75001 Paris',
           description: "Soft and kind as a kitten, roger will go perfectly with your interior. He has a neat coat like the carpet and brown whiskers that will match very well with your curtains whatever their color. He doesn't eat much, at set times, of course. If he bothers you by making too much noise, we even have a small electric collar that will do the job of silence perfectly.",
           specie: 'Bengal tiger',
           user_id: 2,
@@ -65,7 +64,7 @@ roger = { category: 'mammal',
 
 jamila = { category: 'mammal',
            name: 'Jamila',
-           address: 'Rue du Pavillon de Montreuil, 78770 Thoiry',
+           address: '16 Villa Gaudelet, 75011 Paris',
            description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homework. Easy as a monkey.',
            specie: 'African gorilla',
            price: 350,
@@ -73,7 +72,7 @@ jamila = { category: 'mammal',
 
 carlos = { category: 'mammal',
            name: 'Carlos',
-           address: 'Avenue du Blanc, 41110 St Aignan',
+           address: '100 Avenue des Champs-Elysées, 75008 Paris',
            description: "Very docile, Carlos will follow you everywhere. Some clutter issues sometimes, but after all it's not the size that counts. However, do not venture to take the metro with him, it could end in tragedy. Taupe gray color, and name rhinoceros, Carlos is an original. Very little talker",
            specie: 'Java Rhinoceros',
            price: 5689,
