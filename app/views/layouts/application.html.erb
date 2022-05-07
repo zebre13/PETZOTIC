@@ -13,14 +13,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
 
     <%= render 'components/navbar' %>
     <%# <%= render 'components/banner' %>
     <%#= render 'components/cards' %>
 
       <%= yield %>
+      
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <% unless params[:controller] =~ /devise/  %>
       <%= render 'components/footer' %>
       <% end %>
