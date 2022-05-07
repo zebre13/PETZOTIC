@@ -2,12 +2,10 @@ Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
 
-
 boris = { username: 'boris',
           address: 'route de la pyramide, 75012 Paris',
           password: 'petzotic',
           email: 'bourdetboris@gmail.com' }
-
 
 etienne = { username: 'etienne',
             address: 'avenue daumesnil, 75012 Paris',
