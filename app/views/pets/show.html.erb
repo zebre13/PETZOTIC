@@ -4,10 +4,12 @@
 
 <p><%= @pet.name %></p>
 <p><%= @pet.category  %></p>
-<p><%= @pet.description  %></p>
 <p><%= @pet.specie %></p>
+<p><%= @pet.description  %></p>
 
 
 
 
-<%= link_to 'Back to list', root_path, class: "btn btn-primary" %>
+
+<%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
+<%= link_to 'Update your pet', edit_pet_path(@pet), class: "btn btn-primary" %>
