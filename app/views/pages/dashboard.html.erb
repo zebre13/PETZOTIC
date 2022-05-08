@@ -17,6 +17,7 @@
       <p><strong>Username:</strong> <%= @user.email %></p>
     <% end %>
     <p><strong>Address:</strong> <%= @user.address %></p>
+    <%= link_to "Edit profile", edit_user_registration_path(@user) %>
   </div>
 
   <div class="card-dashboard">
