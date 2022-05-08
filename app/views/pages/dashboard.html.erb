@@ -18,6 +18,11 @@
     <% end %>
     <p><strong>Address:</strong> <%= @user.address %></p>
     <%= link_to "Edit profile", edit_user_registration_path(@user) %>
+
+    <form action="/dashboard", method="">
+      <input type="text" name="address" placeholder="Update your address here">
+      <input type="submit" value="Edit address">
+    </form>
   </div>
 
   <div class="card-dashboard">
