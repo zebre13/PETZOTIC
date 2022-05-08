@@ -17,7 +17,10 @@ class BookingsController < ApplicationController
     # authorize @user
     # authorize @pet
     authorize @booking
-    if @booking.save
+    if @pet.user == @user
+      flash.alert = "You can't book your own pet, silly"
+      redirect_to pets_path
+    elsif @booking.save
       redirect_to dashboard_path
     else
       render :pet

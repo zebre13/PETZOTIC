@@ -35,8 +35,11 @@
   <p><%= @pet.description  %></p>
   <p><%= @pet.specie %></p>
 
-
-  <%= render 'bookings/form' %>
+  <% if @user == @pet.user %>
+    <h1>This is your pet</h1>
+  <% else %>
+    <%= render 'bookings/form' %>
+  <% end %>
 
   <%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
 
