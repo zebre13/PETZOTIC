@@ -16,10 +16,10 @@ class PetsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @pet = Pet.find(params[:id])
     @booking = Booking.new
     authorize @pet
-
   end
 
   def new
