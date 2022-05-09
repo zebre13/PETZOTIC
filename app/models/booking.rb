@@ -14,5 +14,5 @@ class Booking < ApplicationRecord
   #                 .none?
   #   flash.alert = "Overlapping reservation exists."
   #   errors.add(:base, 'Overlapping reservation exists')
-  end
+  # end
 end

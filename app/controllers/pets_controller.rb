@@ -56,12 +56,12 @@ class PetsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @pet = Pet.find(params[:id])
-  #   @pet.destroy
-  #   authorize @pet
-  #   redirect_to pets_path
-  # end
+  def destroy
+    @pet = Pet.find(params[:id])
+    authorize @pet
+    @pet.destroy
+    redirect_to user_path
+  end
 
   private
 
