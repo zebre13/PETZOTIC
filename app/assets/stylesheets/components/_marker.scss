@@ -1,7 +1,11 @@
-.marker-img {
-  overflow: hidden;
-  .img {
-    object-fit: contain;
-    width: 24px;
+.marker-photo {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  img {
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    border-radius: 4px;
   }
 }
