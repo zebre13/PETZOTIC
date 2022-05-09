@@ -2,7 +2,11 @@
   display: flex;
 }
 
-.cards-pet {
+.item {
+  flex-grow: 1;
+}
+
+.card-index-display {
   display: grid;
   grid-gap: 16px;
   padding: 16px;
@@ -10,50 +14,56 @@
   top: 0;
 }
 
-.card-pet {
+.card-index {
+  height: 232px;
+  width: 800px;
   border-radius: 4px;
   background: white;
-  box-shadow: 0, 10px, 30px, rgba(0, 0, 0, 0.1);
+  box-shadow: 0px, 10px, 30px, rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  padding-right: 16px;
+  padding: 16px;
   align-items: center;
+  color: $medium-gray;
   h1 {
     color: $gray;
   }
+  &:hover {
+    transform:scale(1.02);
+    transition: all 0.5s;
+  }
 }
 
-.card-photo {
-  width: 240px;
-  height: 240px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+.card-index-photo {
+  width: 200px;
+  height: 200px;
+
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
 }
 
-.card-photo img {
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+.card-index-info {
+  padding-left: 16px;
 }
 
-.card-info {
-  padding: 16px;
+.card-index-header {
+  display: flex;
+}
+
+.card-index-description {
+  overflow: hidden;
+  height: 50px;
 }
 
 #map {
   height: 100vh;
   position: sticky;
   top: 0;
-  margin-top: 16px;
-  margin-right: 16px;
  }
-
-.card-description {
-  overflow: hidden;
-  height: 70px;
-}
 
 .card-dashboard {
   padding: 16px;
@@ -75,4 +85,13 @@
   h1 {
     color: $gray;
   }
+}
+
+.text-bottom {
+  text-align: end;
+}
+
+#daily-rate p {
+  color: $gray;
+  margin: 0px;
 }
