@@ -3,12 +3,14 @@
     <% @pets.each do |pet| %>
       <%= link_to pet_path(pet), :action => 'go' do %>
         <div class="card-pet">
-          <% if pet.photos.any? %>
-            <%= cl_image_tag pet.photos.first.key %>
-          <% end %>
+          <div class="card-photo">
+            <% if pet.photos.any? %>
+              <%= cl_image_tag pet.photos.first.key %>
+            <% end %>
+          </div>
           <div class="card-info">
             <div>
-              <%= pet.category %> | <%= pet.specie %>
+              <%= pet.category.capitalize %> | <%= pet.specie %>
             </div>
             <div>
               <h1><%= pet.name %></h1>
