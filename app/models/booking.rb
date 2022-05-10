@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :pet
   enum status: [ :pending, :accepted, :rejected ]
+
   # validate :reservations_must_not_overlap
 
   # private

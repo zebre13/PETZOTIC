@@ -7,7 +7,7 @@
     <h1> Welcome to your dashboard</h1>
   <% end  %>
 </div>
-
+  <%= link_to "Back", pets_path, class: "btn btn-primary ms-3" %>
   <div class="card-dashboard">
     <h1>My Profile</h1>
     <% if @user.username %>
