@@ -17,3 +17,13 @@ index.search('something', { hitsPerPage: 10, page: 0 })
   .catch(function searchFailure(err) {
     console.error(err);
   });
+
+var client = algoliasearch('I1MPP60BUM', ed2e90d2ea59cda400a2d9d36713b7a6);
+var index = client.initIndex('Pet');
+index.search(params[:query], { hitsPerPage: 10, page: 0 })
+    .then(function searchDone(content) {
+      console.log(content)
+    })
+    .catch(function searchFailure(err) {
+      console.error(err);
+    });
