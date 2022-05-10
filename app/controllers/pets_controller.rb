@@ -3,7 +3,7 @@ class PetsController < ApplicationController
 
 
   def index
-    pets_authorised = policy_scope(Pet).to_a
+    pets_authorised = policy_scope(Pet)
 
     if params[:query].present?
       Pet.algolia_reindex!
@@ -13,7 +13,8 @@ class PetsController < ApplicationController
       @pets = pets_authorised
     end
 
-    @markers = @pets.geocoded.map do |pet|
+
+    @markers = @pets.map do |pet|
       {
         lat: pet.latitude,
         lng: pet.longitude,
