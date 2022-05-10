@@ -37,6 +37,9 @@ gem 'cloudinary', '~> 1.16.0'
 # Geocoding
 gem "geocoder"
 
+# Algolia
+gem "algoliasearch-rails"
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
