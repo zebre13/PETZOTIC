@@ -28,7 +28,8 @@ class BookingsController < ApplicationController
     elsif @booking.save
       redirect_to dashboard_path
     else
-      render :pet
+      flash.alert = "Pet is already booked you can't book it now"
+      redirect_to pet_path(@pet)
     end
   end
 
