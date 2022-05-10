@@ -22,6 +22,7 @@ class PetsController < ApplicationController
       }
     end
     @markers.count
+
   end
 
   def show
