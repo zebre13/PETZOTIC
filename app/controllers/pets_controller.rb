@@ -1,11 +1,20 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
-  def index
-    @pets = policy_scope(Pet)
-    p @pets.count
 
-    @markers = @pets.geocoded.map do |pet|
+  def index
+    pets_authorised = policy_scope(Pet)
+
+    if params[:query].present?
+      Pet.algolia_reindex!
+      pets_query = Pet.algolia_search(params[:query])
+      @pets = pets_query & pets_authorised
+    else
+      @pets = pets_authorised
+    end
+
+
+    @markers = @pets.map do |pet|
       {
         lat: pet.latitude,
         lng: pet.longitude,
@@ -13,6 +22,7 @@ class PetsController < ApplicationController
       }
     end
     @markers.count
+
   end
 
   def show
