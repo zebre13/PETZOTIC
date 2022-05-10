@@ -1,12 +1,17 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  Pets.algolia_reindex!
+  Pet.algolia_reindex!
 
   def index
-    @pets = policy_scope(Pet)
-    hits =  Contact.search("jon doe")
-    p hits
-    p hits.raw_answer
+    pets_authorised = policy_scope(Pet)
+
+    if params[:query].present?
+      pets_query = Pet.algolia_search(params[:query])
+      @pets = pets_authorised && pets_query
+    else
+      @pets = pets_authorised
+    end
+
     p @pets.count
 
     @markers = @pets.geocoded.map do |pet|

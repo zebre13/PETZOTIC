@@ -1,6 +1,10 @@
 class Pet < ApplicationRecord
   include AlgoliaSearch
 
+  algoliasearch do
+
+  end
+
   CATEGORIES = %w(mammal categorie2 categorie3 modifier_dans_pet.rb)
   SPECIES = ['Mi-monkey, mi-man', 'Bengal tiger', 'African gorilla', 'Java Rhinoceros', 'Hirola']
   belongs_to :user
