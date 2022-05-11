@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     elsif @booking.save
       redirect_to dashboard_path
     else
-      flash.alert = "Pet is already booked you can't book it now"
+      flash.alert = "Overlapping reservation exists for this pet at those dates. Please try another dates"
       redirect_to pet_path(@pet)
     end
   end
