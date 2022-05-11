@@ -1,14 +1,12 @@
 .user-pet-card {
-  // width: 230px;
-  // height: 350px;
+  width: 216px;
   border-radius: 4px;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
   align-items: center;
   padding: 8px;
 
   &:hover {
-    // transform:scale(1.02);
-    box-shadow: 0px 10px 30px $green;
+    transform:scale(1.02);
     transition: all 0.5s;
   }
 
@@ -18,6 +16,10 @@
       color: $green;
     }
   }
+}
+
+.user-pet-card-photo {
+  height: 100%;
 }
 
 .user-pet-card-info {
@@ -33,7 +35,15 @@
   }
 }
 
+.card-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
 .dashboard-background {
   background-image: url("leaves.jpg");
   background-size: cover;
+}
+
+.booking-column {
+  width: 50%;
 }

@@ -1,9 +1,10 @@
 <div class="container">
 
+    <%# Menu %>
     <div class="card-dashboard-menu">
       <div>
         <% if @user.username %>
-          <h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard!</h1>
+          <h1>Hello <%= @user.username.capitalize %>, welcome to your dashboard</h1>
         <% else %>
           <h1> Welcome to your dashboard</h1>
         <% end  %>
@@ -13,43 +14,41 @@
       </div>
     </div>
 
+    <%# Profile %>
     <div class="card-dashboard">
-
       <div class="card-dashboard-header">
         <h1>My Profile</h1>
-        <%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn" %>
+        <%= link_to "Edit profile", edit_user_registration_path(@user), class: "btn-green" %>
       </div>
-
-      <% if @user.username %>
-        <h4>Username</h4>
-        <p><%= @user.username.capitalize %></p>
-        <h4>Email</h4>
-        <p><%= @user.email %></p>
-      <% else %>
-        <h4>Username</h4>
-        <p><%= @user.email %></p>
-      <% end %>
+      <div>
+        <% if @user.username %>
+          <h4>Username</h4>
+          <p class="border-bottom"><%= @user.username.capitalize %></p>
+          <h4>Email</h4>
+          <p class="border-bottom"><%= @user.email %></p>
+        <% else %>
+          <h4>Username</h4>
+          <p class="border-bottom"><%= @user.email %></p>
+        <% end %>
         <h4>Address</h4>
-        <p><%= @user.address.capitalize %></p>
+        <p class="border-bottom"><%= @user.address.capitalize %></p>
+      </div>
     </div>
 
+    <%# My pets %>
     <div class="card-dashboard">
-
       <div class="card-dashboard-header">
         <h1>My Pets</h1>
-        <%= link_to "Add a pet", new_pet_path, class: "btn" %>
+        <%= link_to "Add a pet", new_pet_path, class: "btn-green" %>
       </div>
-
-      <div class="d-flex flex-row">
+      <div class="card-dashboard-grid">
         <% @user.pets.all.each do |pet| %>
-          <div class="user-pet-card mx-3 d-flex flex-column">
-
+          <div class="user-pet-card">
             <div class="card-index-photo">
               <% if pet.photos.any? %>
                 <%= cl_image_tag pet.photos.first.key %>
               <% end %>
             </div>
-
             <div class="user-pet-card-info">
               <h4><%= pet.name %></h4>
               <p><%= pet.specie %></p>
@@ -60,11 +59,73 @@
                 <%= link_to "", pet_path(pet), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
               </div>
             </div>
-
           </div>
         <% end %>
       </div>
     </div>
+
+    <%# Bookings as owner %>
+    <div class="card-dashboard">
+
+      <div class="card-dashboard-header">
+        <h1>My pets bookings</h1>
+      </div>
+
+      <div class="d-flex">
+        <div class="booking-column">
+          <h4>Confirmed bookings (<%= @accepted_bookings_as_owner.count %>)</h4>
+
+        </div>
+        <div class="booking-column">
+          <h4>Bookings awaiting confirmation (<%= @pending_bookings_as_owner.count %>)</h4>
+
+        </div>
+      </div>
+
+    </div>
+
+    <%# My Bookings %>
+    <div class="card-dashboard">
+
+      <div class="card-dashboard-header">
+        <h1>My bookings as a user</h1>
+      </div>
+
+      <div class="d-flex">
+        <div class="booking-column">
+          <h4>Confirmed bookings (<%= @accepted_bookings.count %>)</h4>
+
+        </div>
+        <div class="booking-column">
+          <h4>Bookings awaiting confirmation (<%= @pending_bookings.count %>)</h4>
+          <% @pending_bookings.each do |pending_booking| %>
+            <div class="card-pending-booking border">
+              <h4>- Waiting for <%= pending_booking.pet.user.username %> to confirm your booking of <%= Pet.find(pending_booking.pet_id).name %></h4>
+
+              <div class="user-pet-card">
+                <div class="card-index-photo">
+                  <% if pending_booking.pet.photos.any? %>
+                    <%= cl_image_tag pending_booking.pet.photos.first.key %>
+                  <% end %>
+                </div>
+                <div class="user-pet-card-info">
+                  <h4><%= pending_booking.pet.name %></h4>
+                  <p><%= pending_booking.pet.specie %></p>
+                  <p><strong>€<%= pending_booking.pet.price %></strong> / day</p>
+                  <div class="d-flex flex-row justify-content-between mt-4">
+                    <%= link_to "", edit_pet_path(pending_booking.pet), class:"links far fa-edit" %>
+                    <%= link_to "", pet_path(pending_booking.pet), class:" links fas fa-eye" %>
+                    <%= link_to "", pet_path(pending_booking.pet), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+
+    </div>
+
 
     <div class="pending card-dashboard">
       <div class="card-dashboard-header">
