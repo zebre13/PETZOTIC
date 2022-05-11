@@ -23,44 +23,68 @@
       <div>
         <% if @user.username %>
           <h4>Username</h4>
-          <p class="border-bottom"><%= @user.username.capitalize %></p>
+          <p><%= @user.username.capitalize %></p>
           <h4>Email</h4>
-          <p class="border-bottom"><%= @user.email %></p>
+          <p><%= @user.email %></p>
         <% else %>
           <h4>Username</h4>
-          <p class="border-bottom"><%= @user.email %></p>
+          <p><%= @user.email %></p>
         <% end %>
         <h4>Address</h4>
-        <p class="border-bottom"><%= @user.address.capitalize %></p>
+        <p><%= @user.address.capitalize %></p>
       </div>
     </div>
 
-    <%# My pets %>
+    <%# My pets / rajouter _as_owner après pending_booking%>
     <div class="card-dashboard">
       <div class="card-dashboard-header">
         <h1>My Pets</h1>
         <%= link_to "Add a pet", new_pet_path, class: "btn-green" %>
       </div>
-      <div class="card-dashboard-grid">
-        <% @user.pets.all.each do |pet| %>
-          <div class="user-pet-card">
-            <div class="card-index-photo">
-              <% if pet.photos.any? %>
-                <%= cl_image_tag pet.photos.first.key %>
-              <% end %>
-            </div>
-            <div class="user-pet-card-info">
-              <h4><%= pet.name %></h4>
-              <p><%= pet.specie %></p>
-              <p><strong>€<%= pet.price %></strong> / day</p>
-              <div class="d-flex flex-row justify-content-between mt-4">
-                <%= link_to "", edit_pet_path(pet), class:"links far fa-edit" %>
-                <%= link_to "", pet_path(pet), class:" links fas fa-eye" %>
-                <%= link_to "", pet_path(pet), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
+      <div class="d-flex">
+        <div class="column-60">
+          <h4>Team</h4>
+          <div class="card-dashboard-grid">
+            <% @user.pets.all.each do |pet| %>
+              <div class="user-pet-card">
+                <div class="card-index-photo">
+                  <% if pet.photos.any? %>
+                    <%= cl_image_tag pet.photos.first.key %>
+                  <% end %>
+                </div>
+                <div class="user-pet-card-info">
+                  <h4><%= pet.name %></h4>
+                  <p><%= pet.specie %></p>
+                  <p><strong>€<%= pet.price %></strong> / day</p>
+                  <div class="d-flex flex-row justify-content-between mt-4">
+                    <%= link_to "", edit_pet_path(pet), class:"links far fa-edit" %>
+                    <%= link_to "", pet_path(pet), class:" links fas fa-eye" %>
+                    <%= link_to "", pet_path(pet), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
+                  </div>
+                </div>
               </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="column-40 scroll">
+          <h4>Bookings</h4>
+          <% @pending_bookings.each do |pending_booking| %>
+          <div class="owner-booking-card">
+            <% if pending_booking.pet.photos.any? %>
+              <%= cl_image_tag pending_booking.pet.photos.first.key %>
+            <% end %>
+            <div class="info">
+              <h4><%= Pet.find(pending_booking.pet_id).name %></h4>
+              <p>Requested by <%= User.find(pending_booking.user_id).username.capitalize %></p>
+              <p><%= pending_booking.starting_date.strftime("%a %e %b %y") %> - <%= pending_booking.ending_date.strftime("%a %e %b %y") %></p>
+            </div>
+            <div class="action">
+              <i class="fa-solid fa-xmark"></i>
+              <i class="fa-solid fa-check"></i>
             </div>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 
