@@ -52,6 +52,14 @@ tarzan = { category: 'mammal',
            user_id: 1,
            price: 300 }
 
+babar = { category: 'mammal',
+          name: 'Babar',
+          address: 'Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris',
+          description: 'Babar est un éléphant indien très aggressif qui déteste les enfants. Idéal pour faire fuir les derniers invités lorsque le jour se lève.',
+          specie: 'Mi-monkey, mi-man',
+          user_id: 3,
+          price: 3000 }
+
 roger = { category: 'mammal',
           name: 'Roger',
           address: '17 Place Vendôme, 75001 Paris',
@@ -83,7 +91,7 @@ nala = { category: 'mammal',
          specie: 'Hirola',
          price: 999,
          user_id: 4}
-pets = [tarzan, roger, jamila, carlos, nala]
+pets = [tarzan, babar, roger, jamila, carlos, nala]
 
 def seed_pets(pets)
   #carlos
@@ -126,7 +134,16 @@ def seed_pets(pets)
   photo_roger_5 = File.open(Rails.root.join("public/seed_images/roger_5.jpg"))
   photo_roger = [photo_roger_1, photo_roger_2, photo_roger_3, photo_roger_4, photo_roger_5]
 
-  photos = [photo_tarzan, photo_roger, photo_jamila, photo_carlos, photo_nala]
+  #babar
+  photo_babar_1 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_2 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_3 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_4 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_5 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar = [photo_babar_1, photo_babar_2, photo_babar_3, photo_babar_4, photo_babar_5]
+
+
+  photos = [photo_tarzan, photo_babar, photo_roger, photo_jamila, photo_carlos, photo_nala]
 
   pets.each_with_index do |pet, index|
     animal = Pet.new(pet.merge({ user: User.all.sample }))
