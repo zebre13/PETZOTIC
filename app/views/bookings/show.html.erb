@@ -1,1 +1,28 @@
 <h1>Booking detail</h1>
+<div class="container">
+
+  <h1><%= @booking.pet.name %></h1>
+  <% if @booking.pet.photos.any? %>
+          <div class="well-titre"> <%=  cl_image_tag @booking.pet.photos.first&.key %>
+  <% end %>
+
+  <% if @booking.status === 1%>
+    <p>accepted</p>
+  <% elsif @booking.status === 2%>
+    <p>rejected</p>
+  <% else %>
+    <p>pending</p>
+  <% end %>
+
+  <p>Period: <%= @booking.starting_date.strftime("%a %e %b %y") %> - <%= @booking.ending_date.strftime("%a %e %b %y") %> (<%= ((@booking.ending_date - @booking.starting_date)/(3600*24)).round %> days)</p>
+  <p>Total price: €<%= (@booking.pet.price * (@booking.ending_date - @booking.starting_date)/(3600*24)).round(0) %></p>
+  <p>Address: </p><%= @booking.pet.address %>
+
+  <!-- Mapbox -->
+  <div id="map" style="width: 500%; height: 50vh;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @marker.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  Prix total
+</div>

@@ -2,6 +2,13 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
+    @marker = [
+      {
+        lat: @booking.pet.latitude,
+        lng: @booking.pet.longitude,
+        # info_window: render_to_string(partial: "info_window", locals: { pet: @booking.pet })
+      }]
   end
 
   def new
