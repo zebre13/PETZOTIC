@@ -8,7 +8,7 @@
   <div class="row">
       <div class="col-md-4">
       <% if @pet.photos.any? %>
-          <div class="well-titre" style="background-image: url(<%= cl_image_path @pet.photos.first.key %>); background-size: cover">
+          <div class="well-titre"> <%=  cl_image_tag @pet.photos.first&.key %>
       <% end %>
           </div>
       </div>
@@ -29,7 +29,10 @@
   <br>
   <br>
 
+ <div class="prix">
   <h2><%= @pet.category.capitalize  %> | <%= @pet.specie %></h2>
+      <p><strong>€<%= @pet.price %></strong> / day</p>
+  </div>
   <br>
 
   <p><%= @pet.description  %></p>

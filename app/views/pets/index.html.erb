@@ -5,7 +5,7 @@
         <div class="card-index">
           <div class="card-index-photo">
             <% if pet.photos.any? %>
-              <%= cl_image_tag pet.photos.first.key %>
+              <%= cl_image_tag pet.photos.first&.key %>
             <% end %>
           </div>
           <div class="card-index-info">
