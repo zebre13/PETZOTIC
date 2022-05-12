@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Restaurant.find(params[:id])
+    @booking = Booking.find(params[:id]) # Correction BB : @booking = Restaurant.find(params[:id]) précédemment
     @booking.destroy
     authorize @booking
     redirect_to user_path(@user)

@@ -1,9 +1,11 @@
 .user-pet-card {
+  background-color:white;
   width: 216px;
   border-radius: 4px;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
   align-items: center;
   padding: 8px;
+  margin: 8px;
 
   &:hover {
     transform:scale(1.02);
@@ -35,10 +37,14 @@
   }
 }
 
-.card-dashboard-grid {
+.user-pets-display {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  overflow: scroll;
+  height: 380px;
 }
+
 .dashboard-background {
   background-image: url("leaves.jpg");
   background-size: cover;
@@ -46,25 +52,36 @@
 
 .column-60 {
   width: 60%;
+  padding-right: 16px;
+
+  h5 {
+    margin: 0px;
+    color: $medium-gray;
+  }
 }
 
 .column-40 {
   width: 40%;
+
+  h5 {
+    margin: 0px;
+    color: $medium-gray;
+  }
 }
 
 .owner-booking-card {
   display: flex;
   background-color: white;
-  height: 100px;
+  height: 108px;
   width: 100%;
   padding: 4px;
   border-radius: 4px;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 
   img {
-    height: 90px;
-    width: 90px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     border-radius: 4px;
   }
@@ -75,6 +92,11 @@
 
     h4 {
       margin: 0;
+
+      .right {
+        color: $gray;
+        margin-right: 8px;
+      }
     }
 
     p {
@@ -82,7 +104,7 @@
     }
   }
 
-  .action {
+  .status {
     display: block;
     padding-top: 4px;
     padding-right: 4px;
@@ -100,15 +122,78 @@
 #confirmed {
   color: $green;
   background-color: $light-green;
+  text-align: center;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 4px;;
 }
 
-#to_confirmed {
+#pending {
   color: $red;
   background-color: $light-red;
+  text-align: center;
   padding-left: 4px;
   padding-right: 4px;
   border-radius: 4px;;
+}
+
+#rejected {
+  color: $gray;
+  background-color: $light-gray;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;;
+}
+
+#no_margin {
+  margin: 0px;
+}
+
+.owner-bookings-display {
+  height: 380px;
+  overflow: scroll;
+  padding: 8px;
+}
+
+.user-bookings-display {
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+}
+
+.user-booking-card {
+  display: flex;
+  background-color: white;
+  // height: 108px;
+  // width: 100%;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .info {
+    flex-grow: 1;
+    padding-left: 8px;
+
+    h4 {
+      margin: 0;
+
+      .right {
+        color: $gray;
+        margin-right: 8px;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
 }
