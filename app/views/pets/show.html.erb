@@ -6,13 +6,13 @@
   <h1> <%= @pet.name %> </h1></div>
 
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
       <% if @pet.photos.any? %>
           <div class="well-titre"> <%=  cl_image_tag @pet.photos.first&.key %>
       <% end %>
           </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
 
         <%= @pet.photos[1..].each_slice(2) do |photo_1, photo_2|%>
           <div class="row">
