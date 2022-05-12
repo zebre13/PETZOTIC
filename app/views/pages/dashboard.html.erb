@@ -72,10 +72,10 @@
       <div class="column-40 scroll">
         <div class="d-flex justify-content-between">
           <h4>Bookings</h4>
-          <h5><%= @user.bookings.all.count %> total | <%= @user.bookings.pending.count %> pending</p>
+          <h5><%= @user.bookings_as_owner.all.count %> total | <%= @user.bookings_as_owner.pending.count %> pending</p>
         </div>
         <div class="owner-bookings-display">
-          <% @user.bookings.all.each do |booking| %>
+          <% @user.bookings_as_owner.all.each do |booking| %>
           <div class="owner-booking-card">
             <% if booking.pet.photos.any? %>
               <%= cl_image_tag booking.pet.photos.first.key %>
@@ -122,13 +122,17 @@
           <div class="info">
             <h4><%= booking.pet.name %></h4>
             <p><%= booking.pet.specie %></p>
-            <p>Owned by <%= booking.pet.user.username.capitalize %></p>
-            <%# <p>Period: <%= booking.starting_date.strftime("%a %e %b %y") - <%= booking.ending_date.strftime("%a %e %b %y") (days)</p> %>
-            <%# <p>Total price: €<%= booking.pet.price * (booking.ending_date.strftime("%a %e %b %y") - booking.starting_date.strftime("%a %e %b %y"))</p> %>
+            <p>Owner: <%= booking.pet.user.username.capitalize %></p>
+            <% if booking.accepted? %>
+              <p id="confirmed"><%= "Confirmed" %></p>
+            <% else %>
+              <p id="pending"><%= "Pending" %></p>
+            <% end %>
+            <p>Period: <%= booking.starting_date.strftime("%a %e %b %y") %> - <%= booking.ending_date.strftime("%a %e %b %y") %> (<%= ((booking.ending_date - booking.starting_date)/(3600*24)).round %> days)</p>
+            <p>Total price: €<%= (booking.pet.price * (booking.ending_date - booking.starting_date)/(3600*24)).round(0) %></p>
             <div class="d-flex flex-row justify-content-between mt-4">
-              <%# <%= link_to "", edit_pet_path(pet), class:"links far fa-edit" %>
-              <%# <%= link_to "", pet_path(pet), class:"links fas fa-eye" %>
-              <%# <%= link_to "", pet_path(pet), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
+              <%= link_to "", booking_path(booking), class:"links fas fa-eye" %>
+              <%= link_to "", booking_path(booking), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
             </div>
           </div>
         </div>
