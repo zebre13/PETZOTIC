@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :bookings, except: [:show, :edit, :update]
   end
   resources :bookings, only: [:show, :edit, :update]
+  get 'validate', to: 'bookings#validate'
+  get 'decline', to: 'bookings#decline'
 end
 
 # only: %i[index show new create edit update]
