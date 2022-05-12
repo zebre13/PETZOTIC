@@ -89,8 +89,12 @@
               <% if booking.pending? %>
                 <p id="pending"><%= "Confirm?" %></p>
                 <div class="d-flex justify-content-between">
-                  <i class="fa-solid fa-xmark m-3" style="color: red"></i>
-                  <i class="fa-solid fa-check m-3" style="color: green"></i>
+                  <%# <%= simple_form_for(booking) do |t| %>
+                  <%# <%= t.input :status, as: :select, collection: Booking.statuses.keys, selected: 1, required: true %>
+                  <%# <%= t.submit %>
+                  <%# <% end %>
+                  <a href="validate"><i class="fa-solid fa-check m-3" style="color: green"></i></a>
+                  <a href="decline"><i class="fa-solid fa-xmark m-3" style="color: red"></i></a>
                 </div>
               <% elsif booking.accepted?%>
                 <p id="confirmed"><%= "Confirmed" %></p>
