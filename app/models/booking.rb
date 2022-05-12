@@ -8,20 +8,7 @@ class Booking < ApplicationRecord
   private
 
   def starting_date_dont_overlap
-    # pet.bookings.each do |booking|
-    #   break if starting_date >= booking.starting_date && starting_date <= booking.ending_date
-    # end
     return if self.class.where.not(id: id).where(pet_id: pet_id).where('starting_date <= ? AND ending_date >= ?', ending_date, starting_date).none?
     errors.add(:base, 'Overlapping reservation exists')
   end
-
-  # def dates_are_correct?
-  #   return if ending_date.blank? || starting_date.blank?
-  #   Pet.find(pet_id).bookings.each do |booking|
-  #     return if starting_date >= booking.starting_date && starting_date <= booking.ending_date
-  #     return if ending_date >= booking.starting_date && ending_date <= booking.ending_date
-  #     # return false if ending_date < booking.starting_date && starting_date < ending_date
-
-  #   end
-  # end
 end
