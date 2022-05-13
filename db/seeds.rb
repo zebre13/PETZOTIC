@@ -91,7 +91,16 @@ nala = { category: 'mammal',
          specie: 'Hirola',
          price: 999,
          user_id: 4}
-pets = [tarzan, babar, roger, jamila, carlos, nala]
+
+zezette = { category: 'mammal',
+          name: 'Zezette',
+          address: '17 rue montmartre 75001',
+          description: 'Zezette has questionable oral hygiene and speaks a little loudly, but she handles the iron like no other and will make a bouncer respected by unwanted guests at your parties.',
+          specie: 'Mi-monkey, mi-man',
+          price: 49,
+          user_id: 4}
+
+pets = [tarzan, babar, roger, jamila, carlos, nala, zezette]
 
 def seed_pets(pets)
   #carlos
@@ -142,8 +151,15 @@ def seed_pets(pets)
   photo_babar_5 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
   photo_babar = [photo_babar_1, photo_babar_2, photo_babar_3, photo_babar_4, photo_babar_5]
 
+  #zezette
+  photo_zezette_1 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_2 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_3 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_4 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_5 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette = [photo_zezette_1, photo_zezette_2, photo_zezette_3, photo_zezette_4, photo_zezette_5]
 
-  photos = [photo_tarzan, photo_babar, photo_roger, photo_jamila, photo_carlos, photo_nala]
+  photos = [photo_tarzan, photo_babar, photo_roger, photo_jamila, photo_carlos, photo_nala, photo_zezette]
 
   pets.each_with_index do |pet, index|
     animal = Pet.new(pet.merge({ user: User.all.sample }))
