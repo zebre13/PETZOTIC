@@ -1,12 +1,20 @@
 .navbar-lewagon {
   justify-content: space-between;
-  padding-top: 0%;
-  padding-bottom: 8px;
-  /*margin-bottom: 16px;*/
   background-image: url("navbar-img5.jpg"); //previously: background: white
+  align-items: center;
+}
 
-  h1 {
-    color: white;
+.navbar-lewagon h1 {
+  color: white;
+  margin: 0;
+}
+
+.navbar-lewagon .menu-item {
+  color: white;
+  margin-right: 16px;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -15,7 +23,11 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
   border-radius: 50%;
-  
+}
+
+.navbar-brand-with-title {
+  display: flex;
+  align-items: center;
 }
