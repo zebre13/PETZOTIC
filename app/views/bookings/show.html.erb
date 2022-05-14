@@ -35,7 +35,10 @@
       <br><%= @booking.pet.address %>
        <br> class="text-secondary">owner: <%= @booking.pet.user.username.capitalize %></p>
         <%= cl_image_tag @booking.pet.user.photos.first.key, class: "avatar dropdown-toggle"%>
+
+      <%= render 'reviews/form' %>
     </div>
+
     <!-- Mapbox -->
     <div id="map" style="width: 100%; height: 50vh;"
       data-controller="mapbox"

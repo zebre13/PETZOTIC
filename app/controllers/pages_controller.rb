@@ -9,5 +9,6 @@ class PagesController < ApplicationController
     @pending_bookings_as_owner = @user.bookings_as_owner.select{|booking| booking.pending?}
     @accepted_bookings_as_owner = @user.bookings_as_owner.select{|booking| booking.accepted?}
     @rejected_bookings = @user.bookings.all.select{|booking| booking.rejected?}
+    @past_bookings = @user.bookings.all.select{|booking| (booking.ending_date <= DateTime.now) && booking.status == "accepted"}
   end
 end
