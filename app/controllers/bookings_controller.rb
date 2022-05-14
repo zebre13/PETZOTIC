@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @marker = [
       {
         lat: @booking.pet.latitude,
-        lng: @booking.pet.longitude,
+        lng: @booking.pet.longitude
         # info_window: render_to_string(partial: "info_window", locals: { pet: @booking.pet })
       }]
   end
