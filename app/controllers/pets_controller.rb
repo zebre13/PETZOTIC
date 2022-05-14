@@ -61,6 +61,7 @@ class PetsController < ApplicationController
     @pet.update(pet_params)
     authorize @pet
     if @pet.save
+      flash.alert = "Coucou, Michel!"
       redirect_to pet_path(@pet)
     else
       render 'new'
@@ -70,6 +71,7 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find(params[:id])
     authorize @pet
+    flash.alert = "Michel, Are you sure you want to delete?"
     @pet.destroy
     redirect_to user_path
   end
