@@ -30,7 +30,6 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @booking = Booking.new
     @review = Review.new
-    @reviews = @pet.reviews.all
     authorize @pet
   end
 

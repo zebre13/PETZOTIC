@@ -1,18 +1,14 @@
 class ReviewsController < ApplicationController
 
   def create
-    @review = Review.new
     @pet = Pet.find(params[:id])
-
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @review = Review.new(review_params)
+    @review.pet = @pet
+    if @review.save
+      redirect_to pet_path(@pet)
+    else
+      render 'pets/show'
+    end
   end
 
   private
@@ -20,4 +16,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:reviews).permit(:content, :rating)
   end
+
 end

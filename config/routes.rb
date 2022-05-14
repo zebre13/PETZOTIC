@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :pets do
     resources :bookings, except: [:show, :edit, :update]
+    resources :reviews, only: :create
   end
   resources :bookings, only: [:show, :edit, :update]
   get 'validate', to: 'bookings#validate'
   get 'decline', to: 'bookings#decline'
 
-  resources :reviews, except: [:show]
+
 end
 
 # only: %i[index show new create edit update]

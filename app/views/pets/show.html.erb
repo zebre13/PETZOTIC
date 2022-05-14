@@ -52,6 +52,21 @@
     <% end %>
 
     <%= pluralize @pet.reviews.size, "review" %>
+    <div id="reviews">
+      <% if @pet.reviews.blank? %>
+        Be the first to leave a review for <%= @pet.name %>
+      <% else %>
+        <% @pet.reviews.each do |review| %>
+          <p><%= review.content %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= simple_form_for([ @pet, @review ]) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.input :rating %>
+      <%= f.button :submit %>
+    <% end %>
     <%# if policy(@pet).destroy? %>
       <%#= link_to "Remove",
                       pet_path(@pet),
