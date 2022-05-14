@@ -3,10 +3,11 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+    @review = Review.new
     @marker = [
       {
         lat: @booking.pet.latitude,
-        lng: @booking.pet.longitude,
+        lng: @booking.pet.longitude
         # info_window: render_to_string(partial: "info_window", locals: { pet: @booking.pet })
       }]
   end
@@ -64,12 +65,20 @@ class BookingsController < ApplicationController
 
   def validate
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 1
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   def decline
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 2
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   private

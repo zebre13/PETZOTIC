@@ -1,50 +1,36 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
   <div class="container-fluid">
+
     <div class="navbar-brand-with-title">
       <%= link_to "/", class: "navbar-brand" do %>
         <%= image_tag "logo_perroquet.jpg" %>
       <% end %>
       <h1><strong>Petzotic</strong></h1>
     </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "menu-item" %>
-          <% else %>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= cl_image_tag current_user.photos.first.key, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
             <%= link_to "Sign in", new_user_session_path, class: "menu-item" %>
-          <% end %>
-        </li >
-        <%= link_to dashboard_path do %>
-          <li >
-            <% if user_signed_in? %>
-              <%= cl_image_tag current_user.photos.first.key, class: "avatar-bordered dropdown-toggle"%>
-            <% end %>
           </li>
         <% end %>
       </ul>
     </div>
+
   </div>
+  
 </div>
-
-
-
-
-<%# TARGET CODE (pourquoi le dropdown ne fonctionne-t-il pas ???): %>
-
-        <%# if user_signed_in? %>
-          <%#= cl_image_tag current_user.photos.first.key, class: "avatar-bordered dropdown-toggle" %>
-          <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" > %>
-            <%#= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%#= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          <%# </div> %>
-        <%# else %>
-          <%#= link_to "Sign in", new_user_session_path, class: "menu-item" %>
-        <%# end %>
-      <%# </ul> %>
-    <%# </div> %>
-  <%# </div> %>
-<%# </div> %>

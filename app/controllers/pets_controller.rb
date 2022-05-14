@@ -29,6 +29,7 @@ class PetsController < ApplicationController
     @user = current_user
     @pet = Pet.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     authorize @pet
   end
 
@@ -43,6 +44,7 @@ class PetsController < ApplicationController
     @pet.user = current_user
     authorize @pet
     if @pet.save
+      flash[:success] = "Coucou, Michel"
       redirect_to pet_path(@pet)
     else
       render 'new'
@@ -60,6 +62,8 @@ class PetsController < ApplicationController
     @pet.update(pet_params)
     authorize @pet
     if @pet.save
+      flash[:success] = "🎉 You successfully update your pet!"
+
       redirect_to pet_path(@pet)
     else
       render 'new'
