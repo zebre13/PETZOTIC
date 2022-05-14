@@ -29,6 +29,7 @@ class PetsController < ApplicationController
     @user = current_user
     @pet = Pet.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     authorize @pet
   end
 

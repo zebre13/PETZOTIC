@@ -6,6 +6,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create?
     true
   end
@@ -19,6 +23,14 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
+    true
+  end
+
+  def validate?
+    true
+  end
+
+  def decline?
     true
   end
 end

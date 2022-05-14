@@ -39,31 +39,47 @@
   <br>
   <br>
 
- <div class="prix">
-  <h2><%= @pet.category.capitalize  %> | <%= @pet.specie %></h2>
-      <p><strong>€<%= @pet.price %></strong> / day</p>
+<div class="container w-75">
+  <div class="prix ">
+    <h2><%= @pet.category.capitalize  %> | <%= @pet.specie %></h2>
+        <p><strong>€<%= @pet.price %></strong> / day</p>
+    </div>
+    <br>
+
+    <p><%= @pet.description  %></p>
+
+
+    <% if @user == @pet.user %>
+      <h5 class="text-secondary">This is your pet</h1>
+    <% else %>
+      <%= render 'bookings/form' %>
+    <% end %>
+
+
+
+    <% if policy(@pet).edit? %>
+      <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
+    <% end %>
+
+    <div class="container border p-3 mt-3">
+      <h1><%= pluralize @pet.reviews.size, "review" %></h1>
+      <div id="reviews">
+        <% if @pet.reviews.blank? %>
+          Be the first to leave a review for <%= @pet.name %>
+        <% else %>
+          <% @pet.reviews.each do |review| %>
+            <p><%= review.content %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <%# if policy(@pet).destroy? %>
+      <%#= link_to "Remove",
+                      pet_path(@pet),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+    <%# end %>
   </div>
-  <br>
-
-  <p><%= @pet.description  %></p>
-  <p><%= @pet.specie %></p>
-
-
-  <% if @user == @pet.user %>
-    <h1>This is your pet</h1>
-  <% else %>
-    <%= render 'bookings/form' %>
-  <% end %>
-
   <%= link_to 'Back to list', pets_path, class: "btn btn-primary" %>
-
-  <% if policy(@pet).edit? %>
-    <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
-  <% end %>
-  <%# if policy(@pet).destroy? %>
-    <%#= link_to "Remove",
-                    pet_path(@pet),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-  <%# end %>
 </div>

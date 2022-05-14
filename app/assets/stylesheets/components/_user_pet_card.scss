@@ -38,21 +38,26 @@
 }
 
 .user-pets-display {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
+  // display: grid;
+  display: flex;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 8px;
   overflow: scroll;
   height: 380px;
 }
 
 .dashboard-background {
-  background-image: url("leaves.jpg");
+  background-image: url(leaves4.jpg);
   background-size: cover;
+  top: 0;
+  position: sticky;
+  // margin-top: -16px;
+  // height: 100vh;
 }
 
 .column-60 {
   width: 60%;
-  padding-right: 16px;
+  padding-right: 40px;
 
   h5 {
     margin: 0px;
@@ -158,7 +163,7 @@
 
 .user-bookings-display {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   overflow: scroll;
 }
 
