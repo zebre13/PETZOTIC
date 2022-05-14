@@ -2,6 +2,13 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
+    @marker = [
+      {
+        lat: @booking.pet.latitude,
+        lng: @booking.pet.longitude,
+        # info_window: render_to_string(partial: "info_window", locals: { pet: @booking.pet })
+      }]
   end
 
   def new
@@ -34,12 +41,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id]) # Correction BB : @booking = Restaurant.find(params[:id]) précédemment
+    @booking = Booking.find(params[:id])
     @booking.destroy
     authorize @booking
     redirect_to user_path(@user)
   end
-
 
   def edit
     @booking = Booking.find(params[:id])
@@ -54,6 +60,16 @@ class BookingsController < ApplicationController
     else
       notice[:message, "Update didn't work"]
     end
+  end
+
+  def validate
+    @booking = Booking.find(params[:id])
+    @booking.status = 1
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = 2
   end
 
   private

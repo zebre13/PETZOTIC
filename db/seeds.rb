@@ -48,14 +48,22 @@ tarzan = { category: 'mammal',
            name: 'Tarzan',
            address: 'Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris',
            description: 'Tarzan is not very evolved. He descends from the monkey, the tree and the neighbour, but don\'t hold it against him. Unfortunately, he will not be able to show great subtlety, but will know how to defend your home and your wife, if you have one. If you don\'t have one, pretend to have one and it will make the animal very happy. It can smell a little strong sometimes, but we rent with it a tropical atmosphere mist to delicately embalm your interior.',
-           specie: 'Mi-monkey, mi-man'
+           specie: 'Mi-monkey, mi-man',
            price: 300 }
+
+babar = { category: 'mammal',
+          name: 'Babar',
+          address: 'Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris',
+          description: 'Babar est un éléphant indien très aggressif qui déteste les enfants. Idéal pour faire fuir les derniers invités lorsque le jour se lève.',
+          specie: 'Mi-monkey, mi-man',
+          user_id: 3,
+          price: 3000 }
 
 roger = { category: 'mammal',
           name: 'Roger',
           address: '17 Place Vendôme, 75001 Paris',
           description: "Soft and kind as a kitten, roger will go perfectly with your interior. He has a neat coat like the carpet and brown whiskers that will match very well with your curtains whatever their color. He doesn't eat much, at set times, of course. If he bothers you by making too much noise, we even have a small electric collar that will do the job of silence perfectly.",
-          specie: 'Bengal tiger'
+          specie: 'Bengal tiger',
           price: 435}
 
 jamila = { category: 'mammal',
@@ -83,10 +91,17 @@ jade = { category: 'mammal',
          name: 'Jade',
          address: '11 rue Georges Bizet, Paris',
          descroption: 'De compagnie très fluide, elle vous suivra avec grand plaisir à tous vos bals musettes. Dame ondulante, elle bouge son corps sur le dancefloor comme personne. A coup sûr cette année, avec Jade à vos côtés, vous serez reine, ou roi du bal de promo.',
-         specie: 'Daurade'
+         specie: 'Daurade',
          price: 200}
 
-pets = [tarzan, roger, jamila, carlos, nala, jade]
+zezette = { category: 'mammal',
+          name: 'Zezette',
+          address: '17 rue montmartre 75001',
+          description: 'Zezette has questionable oral hygiene and speaks a little loudly, but she handles the iron like no other and will make a bouncer respected by unwanted guests at your parties.',
+          specie: 'Mi-monkey, mi-man',
+          price: 49}
+
+pets = [tarzan, babar, roger, jamila, carlos, nala, zezette]
 
 def seed_pets(pets)
   #carlos
@@ -129,7 +144,23 @@ def seed_pets(pets)
   photo_roger_5 = File.open(Rails.root.join("public/seed_images/roger_5.jpg"))
   photo_roger = [photo_roger_1, photo_roger_2, photo_roger_3, photo_roger_4, photo_roger_5]
 
-  photos = [photo_tarzan, photo_roger, photo_jamila, photo_carlos, photo_nala]
+  #babar
+  photo_babar_1 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_2 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_3 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_4 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar_5 = File.open(Rails.root.join("public/seed_images/babar.jpg"))
+  photo_babar = [photo_babar_1, photo_babar_2, photo_babar_3, photo_babar_4, photo_babar_5]
+
+  #zezette
+  photo_zezette_1 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_2 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_3 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_4 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_5 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette = [photo_zezette_1, photo_zezette_2, photo_zezette_3, photo_zezette_4, photo_zezette_5]
+
+  photos = [photo_tarzan, photo_babar, photo_roger, photo_jamila, photo_carlos, photo_nala, photo_zezette]
 
   pets.each_with_index do |pet, index|
     animal = Pet.new(pet.merge({ user: User.all.sample }))
