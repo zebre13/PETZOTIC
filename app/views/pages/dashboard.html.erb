@@ -145,5 +145,48 @@
     </div>
     <br>
 
+    <div class="card-dashboard">
+          <div class="card-dashboard-header">
+            <h1>My Past Bookings</h1>
+            <%= link_to "Book a pet", pets_path, class: "btn-green" %>
+          </div>
+          <div class="user-bookings-display">
+            <% @past_bookings.each do |booking| %>
+              <div class="user-pet-card">
+                <div class="card-index-photo">
+                  <% if booking.pet.photos.any? %>
+                    <%= cl_image_tag booking.pet.photos.first.key %>
+                  <% end %>
+                </div>
+                <div class="info">
+                  <h4><%= booking.pet.name %></h4>
+                  <p><%= booking.pet.specie %></p>
+                  <p>Owner: <%= booking.pet.user.username.capitalize %></p>
+                  <% if booking.accepted? %>
+                    <p id="confirmed"><%= "Confirmed" %></p>
+                  <% elsif booking.pending? %>
+                    <p id="pending"><%= "Pending" %></p>
+                  <% else %>
+                    <p id="rejected"><%= "Rejected" %></p>
+                  <% end %>
+                  <p>Period: <%= booking.starting_date.strftime("%a %e %b %y") %> - <%= booking.ending_date.strftime("%a %e %b %y") %> (<%= ((booking.ending_date - booking.starting_date)/(3600*24)).round %> days)</p>
+                  <p>Total price: €<%= (booking.pet.price * (booking.ending_date - booking.starting_date)/(3600*24)).round(0) %></p>
+                  <div class="d-flex flex-row justify-content-between mt-4">
+                    <%= link_to "", booking_path(booking), class:"links fas fa-eye" %>
+                    <%= link_to "", booking_path(booking), class: "links fas fa-trash", method: :delete, data: { confirm: "Are you sure?" } %>
+                    <%= link_to "Leave a review", booking_path(booking) %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
 </div>
+

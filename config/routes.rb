@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   resources :pets do
     resources :bookings, except: [:show, :edit, :update]
   end
+  resources :booking, only: [] do
+    resources :reviews, only: :create
+  end
   resources :bookings, only: [:show, :edit, :update]
+
   get 'booking/:id/validate', to: 'bookings#validate'
   get 'booking/:id/decline', to: 'bookings#decline'
+
 end
 
 # only: %i[index show new create edit update]
