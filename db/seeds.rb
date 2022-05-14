@@ -48,16 +48,14 @@ tarzan = { category: 'mammal',
            name: 'Tarzan',
            address: 'Parc Zoologique de Paris, Avenue Daumesnil, 75012 Paris',
            description: 'Tarzan is not very evolved. He descends from the monkey, the tree and the neighbour, but don\'t hold it against him. Unfortunately, he will not be able to show great subtlety, but will know how to defend your home and your wife, if you have one. If you don\'t have one, pretend to have one and it will make the animal very happy. It can smell a little strong sometimes, but we rent with it a tropical atmosphere mist to delicately embalm your interior.',
-           specie: 'Mi-monkey, mi-man',
-           user_id: 1,
+           specie: 'Mi-monkey, mi-man'
            price: 300 }
 
 roger = { category: 'mammal',
           name: 'Roger',
           address: '17 Place Vendôme, 75001 Paris',
           description: "Soft and kind as a kitten, roger will go perfectly with your interior. He has a neat coat like the carpet and brown whiskers that will match very well with your curtains whatever their color. He doesn't eat much, at set times, of course. If he bothers you by making too much noise, we even have a small electric collar that will do the job of silence perfectly.",
-          specie: 'Bengal tiger',
-          user_id: 2,
+          specie: 'Bengal tiger'
           price: 435}
 
 jamila = { category: 'mammal',
@@ -65,25 +63,30 @@ jamila = { category: 'mammal',
            address: '16 Villa Gaudelet, 75011 Paris',
            description: 'Jamila is so to speak not very present. Not one to look for lice, it blends in with the decor, especially if you have tall trees around your home. She loves making jokes and eating bananas. But she also knows how to iron, do the housework, the dishes,... she really likes to mimic everything you do. If you have children, she can even do their homework. Easy as a monkey.',
            specie: 'African gorilla',
-           price: 350,
-           user_id: 2}
+           price: 350}
 
 carlos = { category: 'mammal',
            name: 'Carlos',
            address: '100 Avenue des Champs-Elysées, 75008 Paris',
            description: "Very docile, Carlos will follow you everywhere. Some clutter issues sometimes, but after all it's not the size that counts. However, do not venture to take the metro with him, it could end in tragedy. Taupe gray color, and name rhinoceros, Carlos is an original. Very little talker",
            specie: 'Java Rhinoceros',
-           price: 5689,
-           user_id: 3}
+           price: 5689}
 
 nala = { category: 'mammal',
          name: 'Nala',
          address: '57 Rue Cuvier, 75005 Paris',
          description: 'Long brown horns, gazelle smile and doe eyes, Nala is present damn well. She will impress your in-laws with her good manners. You can also use its horns as coat racks, bag holders on the go or changing rooms at a party, if it runs out',
          specie: 'Hirola',
-         price: 999,
-         user_id: 4}
-pets = [tarzan, roger, jamila, carlos, nala]
+         price: 999}
+
+jade = { category: 'mammal',
+         name: 'Jade',
+         address: '11 rue Georges Bizet, Paris',
+         descroption: 'De compagnie très fluide, elle vous suivra avec grand plaisir à tous vos bals musettes. Dame ondulante, elle bouge son corps sur le dancefloor comme personne. A coup sûr cette année, avec Jade à vos côtés, vous serez reine, ou roi du bal de promo.',
+         specie: 'Daurade'
+         price: 200}
+
+pets = [tarzan, roger, jamila, carlos, nala, jade]
 
 def seed_pets(pets)
   #carlos
