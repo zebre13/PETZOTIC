@@ -19,16 +19,7 @@
 
   <body>
     <%= render 'components/navbar' %>
-    <% if flash.any? %>
-    <div class="flashes-container transition-opacity">
-      <% flash.each do |type, msg| %>
-        <p class="flash-<%= type %> flash"><%= msg %></p>
-      <% end %>
-    </div>
-    <% end %>
+    <%= render 'components/flashes' %>
     <%= yield %>
-    <% unless params[:controller] =~ /devise/  %>
-      <%= render 'components/footer' %>
-    <% end %>
   </body>
 </html>
