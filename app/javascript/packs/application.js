@@ -14,3 +14,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+import { flashesFadeOut } from "../components/flashes"
+document.addEventListener('turbolinks:load', function() {
+  flashesFadeOut()
+})
