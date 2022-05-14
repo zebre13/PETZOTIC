@@ -2,15 +2,18 @@
 <div class="container bg-white w-50 shadow p-3 mt-3">
 
   <% if @booking.pet.photos.any? %>
-    <div class="text-center"> <%=  cl_image_tag @booking.pet.photos.first&.key, height: "200", width: "200", radius: "max", crop: "fill" %></div>
+    <div class="text-center d-flex flex-row justify-content-around align-items-center">
+      <%=  cl_image_tag @booking.pet.photos.first&.key, height: "200", width: "200", radius: "max", crop: "fill" %>
+        <h1> X </h1>
+      <%=  cl_image_tag @booking.user.photos.first&.key, height: "200", width: "200", radius: "max", crop: "fill" %>
+    </div>
   <% end %>
 
   <div>
-    <div class="d-flex flex-row justify-content-around">
-      <strong><h1><%= @booking.pet.name.upcase %></h1></strong>
+    <div class="d-flex flex-row justify-content-around ">
+      <strong><h3 class="text-secondary"><%= @booking.pet.name.upcase %></h3></strong>
       <div class="d-flex flex-row align-items-center">
-        <h1>by: <%= @booking.pet.user.username.capitalize %></h3>
-        <%= cl_image_tag @booking.pet.user.photos.first.key, class: "avatar dropdown-toggle"%>
+
       </div>
     </div>
 
@@ -29,7 +32,9 @@
 
       <p>From <%= @booking.starting_date.strftime("%a %e %b %y") %> to <%= @booking.ending_date.strftime("%a %e %b %y") %> (<%= ((@booking.ending_date - @booking.starting_date)/(3600*24)).round %> days)
       <br>Total price: €<%= (@booking.pet.price * (@booking.ending_date - @booking.starting_date)/(3600*24)).round(0) %>
-      <br><%= @booking.pet.address %> </p>
+      <br><%= @booking.pet.address %>
+       <br> class="text-secondary">owner: <%= @booking.pet.user.username.capitalize %></p>
+        <%= cl_image_tag @booking.pet.user.photos.first.key, class: "avatar dropdown-toggle"%>
     </div>
     <!-- Mapbox -->
     <div id="map" style="width: 100%; height: 50vh;"
