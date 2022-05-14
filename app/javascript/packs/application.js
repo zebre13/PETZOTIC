@@ -14,3 +14,8 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+// const avatar = document.querySelector(".avatar-bordered")
+// avatar.addEventListener("click", function () {
+//   avatar.classList.toggle("show")
+// })
