@@ -14,8 +14,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-
-// const avatar = document.querySelector(".avatar-bordered")
-// avatar.addEventListener("click", function () {
-//   avatar.classList.toggle("show")
-// })
+import { flashesFadeOut } from "../components/flashes"
+document.addEventListener('turbolinks:load', function() {
+  flashesFadeOut()
+})

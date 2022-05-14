@@ -1,7 +1,9 @@
 <div class="text-center">
   <h2><%= pet.name %></h2>
   <div class="marker-photo">
-    <%= cl_image_tag pet.photos.first.key %>
+    <%= cl_image_tag pet.photos&.first&.key %>
   </div>
-  <p><%= pet.address %></p>
+  <p>
+    <%= pet.address %>
+  </p>
 </div>
