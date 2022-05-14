@@ -18,17 +18,17 @@
   </head>
 
   <body>
-
-
     <%= render 'components/navbar' %>
-    <div class="dashboard-background">
-      <%= yield %>
-    </div>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <% unless params[:controller] =~ /devise/  %>
-      <%= render 'components/footer' %>
+    <% if flash.any? %>
+    <div class="flashes-container transition-opacity">
+      <% flash.each do |type, msg| %>
+        <p class="flash-<%= type %> flash"><%= msg %></p>
       <% end %>
+    </div>
+    <% end %>
+    <%= yield %>
+    <% unless params[:controller] =~ /devise/  %>
+      <%= render 'components/footer' %>
+    <% end %>
   </body>
 </html>

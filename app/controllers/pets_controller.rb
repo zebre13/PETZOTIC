@@ -44,6 +44,7 @@ class PetsController < ApplicationController
     @pet.user = current_user
     authorize @pet
     if @pet.save
+      flash[:success] = "Coucou, Michel"
       redirect_to pet_path(@pet)
     else
       render 'new'
@@ -61,6 +62,8 @@ class PetsController < ApplicationController
     @pet.update(pet_params)
     authorize @pet
     if @pet.save
+      flash[:success] = "🎉 You successfully update your pet!"
+
       redirect_to pet_path(@pet)
     else
       render 'new'
