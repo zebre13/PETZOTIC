@@ -152,11 +152,11 @@ def seed_pets(pets)
   photo_babar = [photo_babar_1, photo_babar_2, photo_babar_3, photo_babar_4, photo_babar_5]
 
   #zezette
-  photo_zezette_1 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
-  photo_zezette_2 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
-  photo_zezette_3 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
-  photo_zezette_4 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
-  photo_zezette_5 = File.open(Rails.root.join("public/seed_images/zezette.jpg"))
+  photo_zezette_1 = File.open(Rails.root.join("public/seed_images/zezette_1.jpg"))
+  photo_zezette_2 = File.open(Rails.root.join("public/seed_images/zezette_2.jpg"))
+  photo_zezette_3 = File.open(Rails.root.join("public/seed_images/zezette_3.jpg"))
+  photo_zezette_4 = File.open(Rails.root.join("public/seed_images/zezette_4.jpg"))
+  photo_zezette_5 = File.open(Rails.root.join("public/seed_images/zezette_5.jpg"))
   photo_zezette = [photo_zezette_1, photo_zezette_2, photo_zezette_3, photo_zezette_4, photo_zezette_5]
 
   photos = [photo_tarzan, photo_babar, photo_roger, photo_jamila, photo_carlos, photo_nala, photo_zezette]
