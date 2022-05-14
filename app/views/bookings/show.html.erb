@@ -1,5 +1,5 @@
-
-<div class="container bg-white w-50 shadow p-3 mt-3">
+<br>
+<div class="container bg-white w-50 shadow p-3 mt-3 rounded">
 
   <% if @booking.pet.photos.any? %>
     <div class="text-center d-flex flex-row justify-content-around align-items-center">
@@ -33,17 +33,18 @@
       <p>From <%= @booking.starting_date.strftime("%a %e %b %y") %> to <%= @booking.ending_date.strftime("%a %e %b %y") %> (<%= ((@booking.ending_date - @booking.starting_date)/(3600*24)).round %> days)
       <br>Total price: €<%= (@booking.pet.price * (@booking.ending_date - @booking.starting_date)/(3600*24)).round(0) %>
       <br><%= @booking.pet.address %>
-       <br> class="text-secondary">owner: <%= @booking.pet.user.username.capitalize %></p>
+       <br> <p class="text-secondary">owner: <%= @booking.pet.user.username.capitalize %></p>
         <%= cl_image_tag @booking.pet.user.photos.first.key, class: "avatar dropdown-toggle"%>
 
       <%= render 'reviews/form' %>
     </div>
 
     <!-- Mapbox -->
-    <div id="map" style="width: 100%; height: 50vh;"
+    <div id="map" class="rounded" style="width: 100%; height: 50vh;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @marker.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
+<br>

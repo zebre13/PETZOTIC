@@ -1,3 +1,4 @@
+<br>
 <div class="dashboard-background">
   <div class="container">
 
@@ -14,6 +15,7 @@
         <%= link_to "Back to list", pets_path, class: "btn btn-warning ms-3" %>
       </div>
     </div>
+    <br>
 
     <%# Profile %>
     <div class="card-dashboard">
@@ -35,6 +37,7 @@
         <p><%= @user.address.capitalize %></p>
       </div>
     </div>
+    <br>
 
     <%# My pets %>
     <div class="card-dashboard">
@@ -106,6 +109,7 @@
         </div>
       </div>
     </div>
+    <br>
 
     <%# My Bookings %>
     <div class="card-dashboard">
@@ -145,6 +149,8 @@
     </div>
     <br>
 
+    <%# My past bookings %>
+    <% if @past_bookings.any? %>
     <div class="card-dashboard">
           <div class="card-dashboard-header">
             <h1>My Past Bookings</h1>
@@ -183,10 +189,6 @@
         </div>
       </div>
     </div>
-
-
-
-
+    <% end %>
   </div>
 </div>
-
