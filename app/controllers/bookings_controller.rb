@@ -65,12 +65,20 @@ class BookingsController < ApplicationController
 
   def validate
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 1
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   def decline
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 2
+    @booking.save
+
+    redirect_to dashboard_path
   end
 
   private

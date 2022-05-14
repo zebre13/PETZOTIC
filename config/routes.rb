@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
   end
   resources :bookings, only: [:show, :edit, :update]
-  get 'validate', to: 'bookings#validate'
-  get 'decline', to: 'bookings#decline'
 
+  get 'booking/:id/validate', to: 'bookings#validate'
+  get 'booking/:id/decline', to: 'bookings#decline'
 
 end
 
