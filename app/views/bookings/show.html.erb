@@ -20,9 +20,9 @@
     <div class="border mb-3 p-3">
       <h3>Details</h3>
       <div class="d-flex flex-row justify-content-between text-secondary border round px-3">
-        <% if @booking.status === 1%>
+        <% if @booking.status == 'accepted'%>
           <small class="text-success">Status: Accepted</small>
-        <% elsif @booking.status === 2%>
+        <% elsif @booking.status == 'rejected'%>
           <small class="text-danger">Status: Rejected</small>
         <% else %>
           <small class="text-warning">Status: Pending</small>
