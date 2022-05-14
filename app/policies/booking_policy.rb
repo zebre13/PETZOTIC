@@ -25,4 +25,12 @@ class BookingPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def validate?
+    true
+  end
+
+  def decline?
+    true
+  end
 end
