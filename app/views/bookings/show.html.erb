@@ -35,7 +35,9 @@
        <br> <p class="text-secondary">owner: <%= @booking.pet.user.username.capitalize %></p>
         <%= cl_image_tag @booking.pet.user.photos.first.key, class: "avatar dropdown-toggle"%>
 
-      <%= render 'reviews/form' %>
+      <% if @booking.ending_date < DateTime.now && @booking.user != current_user %>
+        <%= render 'reviews/form' %>
+      <% end %>
     </div>
 
     <!-- Mapbox -->
