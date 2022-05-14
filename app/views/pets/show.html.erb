@@ -50,6 +50,8 @@
     <% if policy(@pet).edit? %>
       <%= link_to 'Edit this pet', edit_pet_path(@pet), class: "btn btn-primary" %>
     <% end %>
+
+    <%= pluralize @pet.reviews.size, "review" %>
     <%# if policy(@pet).destroy? %>
       <%#= link_to "Remove",
                       pet_path(@pet),
